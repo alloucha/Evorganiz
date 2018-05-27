@@ -4,7 +4,9 @@
   class Event extends CI_Model{
 
 
-      protected $table ='Event';
+      protected $tableEvent ='Event';
+      protected $tableBuffet ='Buffet';
+      protected $tableMeal ='Meal';
 
       public function __construct() {
          parent::__construct();
@@ -14,7 +16,7 @@
       public function getEvents() {
           
          $result = $this->db->select()
-                         ->from($this->table)
+                         ->from($this->tableEvent)
                          ->get()
                          ->result();
 
@@ -25,12 +27,24 @@
       public function getNameEventById($id) {
           
          $result = $this->db->select('nameEvent')
-                         ->from($this->table)
+                         ->from($this->tableEvent)
                          ->where('idEvent', $id)
                          ->get()
                          ->result();
 
           return $result;
+      }
+
+
+      public function getBuffetByIdEvent($idEvent){
+
+        $result = $this->db->select()
+                         ->from($this->tableBuffet)
+                         ->where('idEvent', $idEvent)
+                         ->get()
+                         ->result();
+
+        return $result;  
       }
 
   }

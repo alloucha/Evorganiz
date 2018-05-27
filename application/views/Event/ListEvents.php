@@ -54,7 +54,6 @@
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
 
                     <?php
-
                         // Data recovery
                         $line = '';
                         foreach ($ListEvents as $event) {
@@ -71,7 +70,9 @@
                             //$ligne = $ligne . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
                             
                             //$ligne = $ligne . '<td><a  href="contact">' . $nomContact . '</a></td>';
-                            $ligne = $ligne . '<td>' . $idEvent . '</td>';
+                            $ligne = $ligne . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
+                            //$ligne = $ligne . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                    
                             $ligne = $ligne . '<td>' . $dateEvent . '</td>';
                             $ligne = $ligne . '<td>' . $occasionEvent . '</td>';
                             $ligne = $ligne . '<td>' . $personConcerned . '</td>';
@@ -88,9 +89,7 @@
                             $ligne = $ligne . '</tr>';
                             
                             echo  $ligne;
-                            
                         }
-
                     ?>
                 </tbody>
             </table>

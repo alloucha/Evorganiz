@@ -29,7 +29,5 @@ class Events extends CI_Controller {
 
 		return $this->load->view("Event/ListEvents", $data, true);
 	}
-
-
 	
 }
