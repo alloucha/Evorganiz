@@ -36,7 +36,7 @@ class ListEvents extends CI_Model{
      public function insert($data){
         
         $this->db->set('themeEvent', $data['themeEvent'])
-                 ->set('occasionEvent', $data['occasionEvent'])
+                 
                  ->insert($this->table);
     }
 

@@ -31,12 +31,17 @@ class Events extends CI_Controller {
 	}
 
 
-	public function ajouterEvent() {
+	public function addEvent() {
 
-		$data = $this->input->post('nomEditeur');
 		
-		$this->load->view('ListEvents/ajouterEvent', $data);
 		
-		redirect(site_url('/editeur'));
+		$data = array(
+			'themeEvent'=> htmlspecialchars($_POST['themeEvent'])
+		);
+
+
+		$this->ListEvents->insert($data);
+
+		$this->index();
 	}
 }

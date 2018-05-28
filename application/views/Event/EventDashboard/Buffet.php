@@ -1,4 +1,17 @@
 <div class="col-md-auto">
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <i class="fa fa-cutlery"></i> <h3 class="box-title">Buffet</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+      </div>
+      <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+      
     <!-- Custom Tabs (Pulled to the right) -->
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs pull-right">
@@ -7,10 +20,7 @@
             <li class=""><a href="#tab_3-3" data-toggle="tab">Dessert</a></li>
             <li class=""><a href="#tab_4-4" data-toggle="tab">Plat</a></li>
             <li class=""><a href="#tab_5-5" data-toggle="tab">Entrée</a></li>
-            <li class="active"><a href="#tab_6-6" data-toggle="tab">Apéritif</a></li>
-
-            
-            <li class="pull-left header"><i class="fa fa-th"></i> Buffet</li>
+            <li class="active"><a href="#tab_6-6" data-toggle="tab">Apéritif</a></li>  
         </ul>
         
         <div class="tab-content">
@@ -340,3 +350,9 @@
         </div>
     </div><!-- nav-tabs-custom -->
 </div>
+    
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</div>
+

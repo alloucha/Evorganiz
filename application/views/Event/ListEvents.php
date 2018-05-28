@@ -20,58 +20,74 @@
 
 
 
-<div class="col-md-6">
-    <!-- general form elements disabled -->
-    <div class="box box-warning">
-        <div class="box-header">
-            <h3 class="box-title">Créer un événement</h3>
-        </div><!-- /.box-header -->
-        <div class="box-body">
-            <form role="form">
-                <!-- text input -->
-                <div class="form-group">
-                    <label>Thème</label>
-                    <input type="text" class="form-control" placeholder="Entrer ...">
-                </div>
+<div class="col-md-3">
+  <div class="box box-warning collapsed-box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Créer un événement</h3>
 
-                <label>Date : <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <input type="text" class="form-control pull-right" id="reservation">
-                </div></label>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+        </button>
+      </div>
+      <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body" style="display: none;">
 
-
-                <!-- textarea -->
-                <div class="form-group">
-                    <label>Textarea</label>
-                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
+        <form role="form" method="POST" action = <?php echo site_url('Events/addEvent')?> >
+            <!-- text input -->
            
-                <!-- select -->
-                <div class="form-group">
-                    <label>Occasion</label>
-                    <select class="form-control">
-                        <option>Anniversaire</option>
-                        <option>Fiançaille</option>
-                        <option>Mariage</option>
-                        <option>Baptême</option>
-                        <option>Remise de diplôme</option>
-                        <option>Autre</option>
-                    </select>
+           <label>Date : <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
                 </div>
-            
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <input type="text" class="form-control pull-right" name="dateEvent" id="reservation">
+            </div></label>
+
+            <div class="form-group">
+                <label>Occasion</label>
+                <select class="form-control">
+                    <option>Anniversaire</option>
+                    <option>Fiançaille</option>
+                    <option>Mariage</option>
+                    <option>Baptême</option>
+                    <option>Remise de diplôme</option>
+                    <option>Autre</option>
+                </select>
             </div>
 
+            <div class="form-group">
+                <label>Thème</label>
+                <input type="text" class="form-control" name="themeEvent" placeholder="Entrer ...">
+            </div>
 
-            </form>
-        </div><!-- /.box-body -->
-    </div><!-- /.box -->
+            <div class="form-group">
+                <label>Personne concernée</label>
+                <input type="text" class="form-control" name="themeEvent" placeholder="Entrer ...">
+            </div>
+
+            
+
+
+            <!-- textarea -->
+            <div class="form-group">
+                <label>Lieu</label>
+                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+            </div>
+       
+            
+        
+        <div class="box-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-warning">Valider</button>
+        </div>
+
+
+        </form>
+    </div><!-- /.box-body -->
+  </div>
+  <!-- /.box -->
 </div>
-
-
 
 
 <div class="row">
@@ -108,7 +124,7 @@
             <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                 <thead><tr role="row">
 
-                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 212px;">n°</th>
+                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">n°</th>
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Date</th>
 
@@ -144,13 +160,13 @@
                             // for each loop iteration, a line contains all informations about one event
                             $line = '<tr>';
                             $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $idEvent . '</a></td>';                  
-                            $line = $line . '<td>' . $dateEvent . '</td>';
-                            $line = $line . '<td>' . $occasionEvent . '</td>';
+                            $line = $line . '<td>' . $dateEvent       . '</td>';
+                            $line = $line . '<td>' . $occasionEvent   . '</td>';
                             $line = $line . '<td>' . $personConcerned . '</td>';
-                            $line = $line . '<td>' . $themeEvent . '</td>';
-                            $line = $line . '<td>' . $venueEvent . '</td>';
-                            $line = $line . '<td>' . $budgetMaxEvent . '</td>';
-                            $line = $line . '<td>' . $budgetMaxEvent . '</td>';
+                            $line = $line . '<td>' . $themeEvent      . '</td>';
+                            $line = $line . '<td>' . $venueEvent      . '</td>';
+                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
+                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
 
                             // Add a button to delete or edit an event
                             // $line = $line . '<td class="row">';

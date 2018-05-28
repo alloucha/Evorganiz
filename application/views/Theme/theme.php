@@ -325,7 +325,7 @@
                         
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-barcode"></i>
                                 <span>Achats</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -342,7 +342,7 @@
                     
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"> </i> <span>Repas</span>
+                                <i class="fa fa-cutlery"> </i> <span>Repas</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu"> 
@@ -363,18 +363,8 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-folder"></i> <span>Gallerie</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                <i class="fa fa-picture-o"></i> <span>Gallerie</span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="AdminLTE/pages/examples/invoice.html"><i class="fa fa-angle-double-right"></i> Invoice</a></li>
-                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Login</a></li>
-                                <li><a href="AdminLTE/pages/examples/register.html"><i class="fa fa-angle-double-right"></i> Register</a></li>
-                                <li><a href="AdminLTE/pages/examples/lockscreen.html"><i class="fa fa-angle-double-right"></i> Lockscreen</a></li>
-                                <li><a href="AdminLTE/pages/examples/404.html"><i class="fa fa-angle-double-right"></i> 404 Error</a></li>
-                                <li><a href="AdminLTE/pages/examples/500.html"><i class="fa fa-angle-double-right"></i> 500 Error</a></li>
-                                <li><a href="AdminLTE/pages/examples/blank.html"><i class="fa fa-angle-double-right"></i> Blank Page</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </section>
