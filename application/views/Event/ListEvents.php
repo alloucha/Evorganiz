@@ -1,3 +1,94 @@
+<head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- bootstrap 3.0.2 -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- font Awesome -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Ionicons -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <!-- Theme style -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+
+<div class="col-md-6">
+    <!-- general form elements disabled -->
+    <div class="box box-warning">
+        <div class="box-header">
+            <h3 class="box-title">Créer un événement</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+            <form role="form">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Thème</label>
+                    <input type="text" class="form-control" placeholder="Entrer ...">
+                </div>
+
+                <label>Date : <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="reservation">
+                </div></label>
+
+
+                <!-- textarea -->
+                <div class="form-group">
+                    <label>Textarea</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                </div>
+           
+                <!-- select -->
+                <div class="form-group">
+                    <label>Occasion</label>
+                    <select class="form-control">
+                        <option>Anniversaire</option>
+                        <option>Fiançaille</option>
+                        <option>Mariage</option>
+                        <option>Baptême</option>
+                        <option>Remise de diplôme</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+            
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+
+            </form>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
@@ -66,29 +157,29 @@
                             $budgetMaxEvent = $event->budgetMaxEvent;           
                             
                             // for each loop iteration, a line contains all informations about one event
-                            $ligne = '<tr>';
-                            //$ligne = $ligne . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
+                            $line = '<tr>';
+                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
                             
-                            //$ligne = $ligne . '<td><a  href="contact">' . $nomContact . '</a></td>';
-                            $ligne = $ligne . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                            //$ligne = $ligne . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                            //$line = $line . '<td><a  href="contact">' . $nomContact . '</a></td>';
+                            $line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
+                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                     
-                            $ligne = $ligne . '<td>' . $dateEvent . '</td>';
-                            $ligne = $ligne . '<td>' . $occasionEvent . '</td>';
-                            $ligne = $ligne . '<td>' . $personConcerned . '</td>';
-                            $ligne = $ligne . '<td>' . $themeEvent . '</td>';
-                            $ligne = $ligne . '<td>' . $venueEvent . '</td>';
-                            $ligne = $ligne . '<td>' . $budgetMaxEvent . '</td>';
-                            $ligne = $ligne . '<td>' . $budgetMaxEvent . '</td>';
+                            $line = $line . '<td>' . $dateEvent . '</td>';
+                            $line = $line . '<td>' . $occasionEvent . '</td>';
+                            $line = $line . '<td>' . $personConcerned . '</td>';
+                            $line = $line . '<td>' . $themeEvent . '</td>';
+                            $line = $line . '<td>' . $venueEvent . '</td>';
+                            $line = $line . '<td>' . $budgetMaxEvent . '</td>';
+                            $line = $line . '<td>' . $budgetMaxEvent . '</td>';
 
                             // Add a button to delete or edit an event
-                            // $ligne = $ligne . '<td class="row">';
+                            // $line = $line . '<td class="row">';
 
                             ////////to do buttton 
 
-                            $ligne = $ligne . '</tr>';
+                            $line = $line . '</tr>';
                             
-                            echo  $ligne;
+                            echo  $line;
                         }
                     ?>
                 </tbody>
@@ -112,3 +203,4 @@
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>
+

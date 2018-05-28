@@ -311,16 +311,12 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="treeview">
+                        <li class="active">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i> 
                                 <span>Evenements</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="AdminLTE/pages/examples/invoice.html"><i class="fa fa-angle-double-right"></i> A venir</a></li>
-                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Passés</a></li>
-                            </ul>
                         </li>
                         <li>
                             <a href="AdminLTE/pages/widgets.html">
@@ -347,11 +343,12 @@
                     
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Buffet</span>
+                                <i class="fa fa-edit"> </i> <span>Repas</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="AdminLTE/pages/examples/invoice.html"><i class="fa fa-angle-double-right"></i> Apéritif</a></li>
+                            <ul class="treeview-menu"> 
+                                <li><a href="Meal"><i class="fa fa-angle-double-right"></i> Tous</a></li>
+                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Apéritif</a></li>
                                 <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Entrée</a></li>
                                 <li><a href="AdminLTE/pages/examples/register.html"><i class="fa fa-angle-double-right"></i> Plat</a></li>
                                 <li><a href="AdminLTE/pages/examples/lockscreen.html"><i class="fa fa-angle-double-right"></i> Dessert</a></li>

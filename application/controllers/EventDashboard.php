@@ -5,7 +5,7 @@ class EventDashboard extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('Event/Event');
+		$this->load->model('Event/EventPage');
 	}
 
 	public function index() {
@@ -24,7 +24,7 @@ class EventDashboard extends CI_Controller {
 
 	public function createDashboard(){
 
-		$data['buffet'] = $this->buffet(1);
+		$data['buffet'] = $this->getBuffet(2);
 		$data['todolist'] = $this->toDoList();		
 
 
@@ -32,11 +32,12 @@ class EventDashboard extends CI_Controller {
 	}
 
 
-	public function buffet($id){
+	public function getBuffet($idEvent){
 
-		$data['buffet']= $this->Event->getBuffetByIdEvent($id);
+		$data['buffet'] = $this->EventPage->getMealByIdEvent($idEvent);
 
 		return $this->load->view("Event/EventDashboard/Buffet", $data, true);
+
 	}
 
 
