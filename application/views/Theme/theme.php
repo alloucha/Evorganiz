@@ -312,14 +312,13 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="#">
+                            <a href="Events">
                                 <i class="fa fa-dashboard"></i> 
                                 <span>Evenements</span>
-                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="AdminLTE/pages/widgets.html">
+                            <a href="Contacts">
                                 <i class="fa fa-th"></i> <span>Liste Contacts</span> <small class="badge pull-right bg-green">new</small>
                             </a>
                         </li>
@@ -348,12 +347,12 @@
                             </a>
                             <ul class="treeview-menu"> 
                                 <li><a href="Meal"><i class="fa fa-angle-double-right"></i> Tous</a></li>
-                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Apéritif</a></li>
-                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Entrée</a></li>
-                                <li><a href="AdminLTE/pages/examples/register.html"><i class="fa fa-angle-double-right"></i> Plat</a></li>
-                                <li><a href="AdminLTE/pages/examples/lockscreen.html"><i class="fa fa-angle-double-right"></i> Dessert</a></li>
-                                <li><a href="AdminLTE/pages/examples/404.html"><i class="fa fa-angle-double-right"></i> Boisson</a></li>
-                                <li><a href="AdminLTE/pages/examples/404.html"><i class="fa fa-angle-double-right"></i> Autre</a></li>
+                                <li><a href="Meal?typeMeal=Apéritif"><i class="fa fa-angle-double-right"></i> Apéritif</a></li>
+                                <li><a href="Meal?typeMeal=Entrée"><i class="fa fa-angle-double-right"></i> Entrée</a></li>
+                                <li><a href="Meal?typeMeal=Plat"><i class="fa fa-angle-double-right"></i> Plat</a></li>
+                                <li><a href="Meal?typeMeal=Dessert"><i class="fa fa-angle-double-right"></i> Dessert</a></li>
+                                <li><a href="Meal?typeMeal=Boisson"><i class="fa fa-angle-double-right"></i> Boisson</a></li>
+                                <li><a href="Meal?typeMeal=Autre"><i class="fa fa-angle-double-right"></i> Autre</a></li>
                             </ul>
                         </li>
                         <li>

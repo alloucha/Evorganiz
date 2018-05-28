@@ -65,26 +65,11 @@
                 <button type="submit" class="btn btn-primary">Valider</button>
             </div>
 
+
             </form>
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -158,12 +143,7 @@
                             
                             // for each loop iteration, a line contains all informations about one event
                             $line = '<tr>';
-                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
-                            
-                            //$line = $line . '<td><a  href="contact">' . $nomContact . '</a></td>';
-                            $line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
-                    
+                            $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $idEvent . '</a></td>';                  
                             $line = $line . '<td>' . $dateEvent . '</td>';
                             $line = $line . '<td>' . $occasionEvent . '</td>';
                             $line = $line . '<td>' . $personConcerned . '</td>';

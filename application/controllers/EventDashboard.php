@@ -24,7 +24,14 @@ class EventDashboard extends CI_Controller {
 
 	public function createDashboard(){
 
-		$data['buffet'] = $this->getBuffet(2);
+		$idEvent = $_GET['idEvent'];
+
+		if (isset($idEvent)){
+
+			$data['buffet'] = $this->getBuffet($idEvent);
+
+		} 
+
 		$data['todolist'] = $this->toDoList();		
 
 
