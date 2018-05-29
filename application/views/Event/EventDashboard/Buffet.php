@@ -49,7 +49,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal
@@ -103,7 +103,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal
@@ -157,7 +157,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal
@@ -211,7 +211,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal
@@ -265,7 +265,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal
@@ -318,7 +318,7 @@
 
                                 $nameMeal = $meal->nameMeal;
                                 $descriptionMeal = $meal->descriptionMeal;
-                                $priceMeal = $meal->price;
+                                $priceMeal = $meal->pricePerPersonn;
                                 
 
                                 // for each loop iteration, a line contains all informations about one meal

@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
   <div class="box box-warning collapsed-box">
     <div class="box-header with-border">
       <h3 class="box-title">Ajouter un contact</h3>
@@ -30,7 +30,7 @@
             </div>
         
         <div class="box-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="reset" class="btn btn-secondary">Annuler</button>
             <button type="submit" class="btn btn-warning">Valider</button>
         </div>
 

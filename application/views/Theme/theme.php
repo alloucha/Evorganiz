@@ -318,8 +318,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="Contacts">
-                                <i class="fa fa-th"></i> <span>Liste Contacts</span> <small class="badge pull-right bg-green">new</small>
+                            <a href="Contact">
+                                <i class="fa fa-group"></i> <span>Liste Contacts</span>
                             </a>
                         </li>
                         
