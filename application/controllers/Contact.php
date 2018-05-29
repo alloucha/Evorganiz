@@ -35,11 +35,45 @@ class Contact extends CI_Controller {
         $data = array(
             'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
             'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
-            'telephoneContact'=> htmlspecialchars($_POST['telephoneContact'])
+            'telephoneContact'=> htmlspecialchars($_POST['telephoneContact']),
+            'streetContact'=> htmlspecialchars($_POST['streetContact']),
+            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
+            'townContact'=> htmlspecialchars($_POST['townContact']),
         );
 
         $this->Contact_model->insert($data);
 
-        $this->index();
+        redirect(site_url('/Contact'));
     }
+
+
+    public function deleteContact() {
+
+        $idContact = $_POST['idContactToDelete'];
+
+        if (isset($idContact)){
+
+            $this->Contact_model->delete($idContact);
+        } 
+
+        redirect(site_url('/Contact'));
+    }
+
+
+    public function editContact() {
+
+        $data = array(
+            'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
+            'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
+            'telephoneContact'=> htmlspecialchars($_POST['telephoneContact']),
+            'streetContact'=> htmlspecialchars($_POST['streetContact']),
+            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
+            'townContact'=> htmlspecialchars($_POST['townContact']),
+        );
+
+        $this->Contact_model->update($data);
+
+        redirect(site_url('/Contact'));
+    }
+
 }

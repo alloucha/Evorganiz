@@ -15,18 +15,25 @@
         <form role="form" method="POST" action = <?php echo site_url('Contact/addContact')?> >
             <!-- text input -->
             <div class="form-group">
-                <label>Nom</label>
+                <label>Nom : </label>
                 <input type="text" class="form-control" name="lastnameContact" placeholder="Entrer ...">
             </div>
 
             <div class="form-group">
-                <label>Prénom</label>
+                <label>Prénom : </label>
                 <input type="text" class="form-control" name="firstnameContact" placeholder="Entrer ...">
             </div>
             
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                 <input type="text" class="form-control" name="telephoneContact" placeholder="Téléphone">
+            </div>
+
+            <div class="form-group">
+                <label>Adresse : </label>
+                <input type="text" class="form-control" name="streetContact" placeholder="rue">
+                <input type="text" class="form-control" name="zipCodeContact" placeholder="code postal">
+                <input type="text" class="form-control" name="townContact" placeholder="ville">
             </div>
         
         <div class="box-footer">
@@ -96,6 +103,7 @@
                         // Data recovery
                         $line = '';
                         foreach ($ListContact as $contact) {
+                            $idContact = $contact->idContact;
                             $lastnameContact = $contact->lastnameContact;
                             $firstnameContact = $contact->firstnameContact;
                             $telContact = $contact->telContact;
@@ -112,14 +120,50 @@
                             $line = $line . '<td>' . $zipCodeContact   . '</td>';
                             $line = $line . '<td>' . $townContact      . '</td>';
 
-                            // Add a button to delete or edit an event
-                            // $line = $line . '<td class="row">';
+                            // Add a button to delete or edit a contact
+                            $line = $line . '<td class="row">';
 
-                            ////////to do buttton 
+                            $line = $line . '<span class="pull-right">
+
+                                                <a class="btn" data-toggle="modal" data-target="#deleteContactModal_' . $idContact .'" role="button"><i class="fa fa-trash-o"></i></a>
+                                                
+
+                                            </span>';
 
                             $line = $line . '</tr>';
                             
                             echo  $line;
+
+
+                            
+
+                             $modalDeleteContact =
+                            '<div class="modal fade" id="deleteContactModal_' . $idContact .'" tabindex="-1" role="dialog">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title"><b>Attention !</b></h5>
+                                       
+                                          </div>
+                                          
+                                          <form method="POST" action="' . site_url("Contact/deleteContact") . '">
+                                              <div class="modal-body">
+                                                    <p>Etes-vous sûr de vouloir supprimer ce contact ?</p>
+                                                    <input type="hidden" name="idContactToDelete" value="'. $idContact .'">
+                                              </div>
+                                              <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <button type="submit" class="btn btn-warning">Valider</button>               
+                                              </div>
+                                         </form>
+                                        </div>
+                                      </div>
+                                    </div>';
+           
+                            echo ($modalDeleteContact);   
                         }
                     ?>
                 </tbody>

@@ -37,8 +37,25 @@ class Contact_model extends CI_Model{
         
         $this->db->set('lastnameContact', $data['lastnameContact'])
                  ->set('firstnameContact', $data['firstnameContact'])
-                 ->set('telephoneContact', $data['telephoneContact'])
+                 ->set('telContact', $data['telephoneContact'])
+                 ->set('streetContact', $data['streetContact'])
+                 ->set('zipCodeContact', $data['zipCodeContact'])
+                 ->set('townContact', $data['townContact'])
                  ->insert($this->table);
+    }
+
+
+    public function update($data){
+
+        $this->db->where('idContact', $data['idContact'])
+                 ->update($this->table, $data);
+    }
+
+
+    public function delete($id){
+        
+        $this->db->where('idContact', $id)
+                  ->delete($this->table);
     }
 
 }
