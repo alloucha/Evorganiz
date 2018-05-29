@@ -36,8 +36,20 @@ class ListEvents extends CI_Model{
      public function insert($data){
         
         $this->db->set('themeEvent', $data['themeEvent'])
+                  ->set('personConcerned', $data['personConcerned'])
+                  ->set('budgetMaxEvent', $data['budgetMaxEvent'])
+                  ->set('occasionEvent', $data['occasionEvent'])
+                  ->set('dateEvent', $data['dateEvent'])
                  
                  ->insert($this->table);
+    }
+
+
+
+    public function delete($id){
+        
+        $this->db->where('idEvent', $id)
+                  ->delete($this->table);
     }
 
 }

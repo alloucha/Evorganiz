@@ -32,11 +32,13 @@ class Events extends CI_Controller {
 
 
 	public function addEvent() {
-
-		
 		
 		$data = array(
-			'themeEvent'=> htmlspecialchars($_POST['themeEvent'])
+			'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
+			'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
+			'occasionEvent'=> htmlspecialchars($_POST['occasionEvent']),
+			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
+			'personConcerned'=> htmlspecialchars($_POST['personConcerned'])
 		);
 
 
@@ -44,4 +46,22 @@ class Events extends CI_Controller {
 
 		$this->index();
 	}
+
+
+	public function deleteEvent() {
+
+		$idEvent = $_POST['idEventToDelete'];
+
+		if (isset($idEvent)){
+
+			$this->ListEvents->delete($idEvent);
+
+		} 
+
+		return $this->index();
+	}
+
+
+
+	
 }

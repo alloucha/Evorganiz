@@ -1,26 +1,4 @@
-<head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- bootstrap 3.0.2 -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <!-- font Awesome -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <!-- Ionicons -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <!-- Theme style -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-    </head>
-
-
-
-<div class="col-md-3">
+<div class="col-md-4">
   <div class="box box-warning collapsed-box">
     <div class="box-header with-border">
       <h3 class="box-title">Créer un événement</h3>
@@ -35,21 +13,23 @@
     <div class="box-body" style="display: none;">
 
         <form role="form" method="POST" action = <?php echo site_url('Events/addEvent')?> >
-            <!-- text input -->
-           
-           <label>Date : <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                </div>
-                <input type="text" class="form-control pull-right" name="dateEvent" id="reservation">
-            </div></label>
 
             <div class="form-group">
-                <label>Occasion</label>
-                <select class="form-control">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control" name="dateEvent" placeholder="jj/mm/aaaa">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" title="Occasion">
+                    <option selected>Occasion</option>
                     <option>Anniversaire</option>
                     <option>Fiançaille</option>
                     <option>Mariage</option>
+                    <option>Anniversaire de mariage</option>
                     <option>Baptême</option>
                     <option>Remise de diplôme</option>
                     <option>Autre</option>
@@ -57,28 +37,25 @@
             </div>
 
             <div class="form-group">
-                <label>Thème</label>
-                <input type="text" class="form-control" name="themeEvent" placeholder="Entrer ...">
+                
+                <input type="text" class="form-control" name="themeEvent" placeholder="Thème">
             </div>
 
             <div class="form-group">
-                <label>Personne concernée</label>
-                <input type="text" class="form-control" name="themeEvent" placeholder="Entrer ...">
+                
+                <input type="text" class="form-control" name="personConcerned" placeholder="Personne concernée">
             </div>
 
-            
-
-
-            <!-- textarea -->
-            <div class="form-group">
-                <label>Lieu</label>
-                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+        
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                <input type="text" class="form-control" name="budgetMaxEvent" placeholder="Budget Maximum">
             </div>
        
             
         
         <div class="box-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+            <button type="reset" class="btn btn-secondary">Annuler</button>
             <button type="submit" class="btn btn-warning">Valider</button>
         </div>
 
@@ -140,6 +117,8 @@
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Budget Max</th>
 
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
+
                 </tr></thead>
     
                 
@@ -166,16 +145,53 @@
                             $line = $line . '<td>' . $themeEvent      . '</td>';
                             $line = $line . '<td>' . $venueEvent      . '</td>';
                             $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
-                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
+                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>'; ////////// attention calculer nb invité !!!!!!!!
 
                             // Add a button to delete or edit an event
                             // $line = $line . '<td class="row">';
 
                             ////////to do buttton 
 
+                            $line = $line . '<td>' . '<span class="pull-right">
+
+                                                <a class="btn" data-toggle="modal" data-target="#deleteEventModal_' . $idEvent .'" role="button"><i class="fa fa-trash-o"></i></a>
+
+                                            </span> </td>';
+
+
                             $line = $line . '</tr>';
                             
                             echo  $line;
+
+
+                             $modalDeleteEvent =
+                            '<div class="modal fade" id="deleteEventModal_' . $idEvent .'" tabindex="-1" role="dialog">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title"><b>Attention !</b></h5>
+                                       
+                                          </div>
+                                          
+                                          <form method="POST" action="' . site_url("Events/deleteEvent") . '">
+                                              <div class="modal-body">
+                                                    <p>Etes-vous sûr de vouloir supprimer cet événement ?</p>
+                                                    <input type="hidden" name="idEventToDelete" id="idEditeur" value="'. $idEvent .'">
+                                              </div>
+                                              <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                                    <button type="submit" class="btn btn-secondary">Valider</button>               
+                                              </div>
+                                         </form>
+                                        </div>
+                                      </div>
+                                    </div>';
+           
+                            echo ($modalDeleteEvent);    
+
                         }
                     ?>
                 </tbody>
@@ -199,4 +215,5 @@
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>
-
+</div>
+</div>
