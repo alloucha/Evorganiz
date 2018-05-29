@@ -125,9 +125,9 @@
 
                             $line = $line . '<span class="pull-right">
 
+                                                <a class="btn" data-toggle="modal" data-target="#editContactModal_' . $idContact .'" role="button"><i class="fa fa-edit"></i></a>
                                                 <a class="btn" data-toggle="modal" data-target="#deleteContactModal_' . $idContact .'" role="button"><i class="fa fa-trash-o"></i></a>
                                                 
-
                                             </span>';
 
                             $line = $line . '</tr>';
@@ -135,7 +135,55 @@
                             echo  $line;
 
 
+                            $modalEditContact ='
+                            <div class="modal fade" id="editContactModal_' . $idContact .'"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" >
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title" id="exampleModalLabel">Modifier contact</h5>
+                                        </div>
                             
+                                        <form method="POST" action="' . site_url("Contact/editContact?idContactToEdit=" . $idContact) . '">
+                                            
+                                            <div class="modal-body">
+
+                                                <div class="form-group">
+                                                    <label>Nom : </label>
+                                                    <input type="text" value="' . $lastnameContact . '" class="form-control" name="lastnameContactToEdit" placeholder="Entrer ...">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Prénom : </label>
+                                                    <input type="text" value="' . $firstnameContact . '" class="form-control" name="firstnameContactToEdit" placeholder="Entrer ...">
+                                                </div>
+                                                
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                    <input type="text" value="' . $telContact . '" class="form-control" name="telephoneContactToEdit" placeholder="Téléphone">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Adresse : </label>
+                                                    <input type="text" value="' . $streetContact . '" class="form-control" name="streetContactToEdit" placeholder="rue">
+                                                    <input type="text" value="' . $zipCodeContact . '" class="form-control" name="zipCodeContactToEdit" placeholder="code postal">
+                                                    <input type="text" value="' . $townContact . '" class="form-control" name="townContactToEdit" placeholder="ville">
+                                                </div>
+
+                                            </div>
+                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-warning">Sauvegarder</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>';
+                            echo $modalEditContact;
+
 
                              $modalDeleteContact =
                             '<div class="modal fade" id="deleteContactModal_' . $idContact .'" tabindex="-1" role="dialog">

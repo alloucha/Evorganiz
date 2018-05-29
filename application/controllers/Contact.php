@@ -35,7 +35,7 @@ class Contact extends CI_Controller {
         $data = array(
             'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
             'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
-            'telephoneContact'=> htmlspecialchars($_POST['telephoneContact']),
+            'telContact'=> htmlspecialchars($_POST['telephoneContact']),
             'streetContact'=> htmlspecialchars($_POST['streetContact']),
             'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
             'townContact'=> htmlspecialchars($_POST['townContact']),
@@ -63,12 +63,13 @@ class Contact extends CI_Controller {
     public function editContact() {
 
         $data = array(
-            'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
-            'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
-            'telephoneContact'=> htmlspecialchars($_POST['telephoneContact']),
-            'streetContact'=> htmlspecialchars($_POST['streetContact']),
-            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
-            'townContact'=> htmlspecialchars($_POST['townContact']),
+            'idContact'=> htmlspecialchars($_GET['idContactToEdit']),
+            'lastnameContact'=> htmlspecialchars($_POST['lastnameContactToEdit']),
+            'firstnameContact'=> htmlspecialchars($_POST['firstnameContactToEdit']),
+            'telContact'=> htmlspecialchars($_POST['telephoneContactToEdit']),
+            'streetContact'=> htmlspecialchars($_POST['streetContactToEdit']),
+            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContactToEdit']),
+            'townContact'=> htmlspecialchars($_POST['townContactToEdit']),
         );
 
         $this->Contact_model->update($data);
