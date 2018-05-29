@@ -24,10 +24,22 @@ class ListEvents extends CI_Model{
        return $result;
     }
 
+
     public function getAllOccasions(){
 
       $result = $this->db->select()
                          ->from('OccasionEvent')
+                         ->get()
+                         ->result();
+
+        return $result;
+    }
+
+
+    public function getAllGuests(){
+
+      $result = $this->db->select()
+                         ->from('Guest')
                          ->get()
                          ->result();
 

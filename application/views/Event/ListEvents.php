@@ -143,23 +143,46 @@
                             $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $idEvent . '</a></td>';                  
                             $line = $line . '<td>' . $dateEvent       . '</td>';
 
-                            //recover name occasion by id
-                            foreach ($ListOccasions as $occasion){
+                            if ($idOccasionEvent==0){
+                                $line = $line . '<td></td>';
+                            } else {
+                                foreach ($ListOccasions as $occasion){
 
-                                $idOccasion = $occasion->idOccasion;
+                                    $idOccasion = $occasion->idOccasion;
 
-                                if ($idOccasionEvent==$idOccasion) {
-                                    $nameOccasion = $occasion->nameOccasion;
-                                    $line = $line . '<td>' . $nameOccasion . '</td>';
+                                    if ($idOccasionEvent==$idOccasion) {
+                                        $nameOccasion = $occasion->nameOccasion;
+                                        $line = $line . '<td>' . $nameOccasion . '</td>';
+                                    }
                                 }
                             }
 
                             $line = $line . '<td>' . $personConcerned . '</td>';
                             $line = $line . '<td>' . $themeEvent      . '</td>';
                             $line = $line . '<td>' . $venueEvent      . '</td>';
-                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
-                            $line = $line . '<td>' . $budgetMaxEvent  . '</td>'; ////////// attention calculer nb invité !!!!!!!!
 
+                            $number = 0;
+
+                            foreach ($ListGuests as $guest){
+
+                                if (($guest->idEvent)==$idEvent) {
+
+                                    $number++;
+                                }
+
+                            }
+
+                            if ($number==0){
+                                $line = $line . '<td></td>';
+                            } else {
+                                $line = $line . '<td>' . $number . '</td>'; 
+                            }
+                            
+                            if ($budgetMaxEvent==0){
+                                $line = $line . '<td></td>';
+                            } else {
+                                $line = $line . '<td>' . $budgetMaxEvent  . '</td>';
+                            }
                             // Add a button to delete or edit an event
                             $line = $line . '<td class="row">';
 

@@ -27,6 +27,7 @@ class Events extends CI_Controller {
 
 		$data['ListEvents'] = $this->ListEvents->getEvents();
 		$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
+		$data['ListGuests'] = $this->ListEvents->getAllGuests();
 
 		return $this->load->view("Event/ListEvents", $data, true);
 	}
