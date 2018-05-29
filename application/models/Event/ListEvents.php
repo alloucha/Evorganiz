@@ -6,6 +6,8 @@ class ListEvents extends CI_Model{
 
     protected $table ='Event';
     protected $table2 ='OccasionEvent';
+    protected $table3 ='Guest';
+    protected $table4 ='Buffet';
 
     public function __construct() {
        parent::__construct();
@@ -38,8 +40,9 @@ class ListEvents extends CI_Model{
         $this->db->set('themeEvent', $data['themeEvent'])
                   ->set('personConcerned', $data['personConcerned'])
                   ->set('budgetMaxEvent', $data['budgetMaxEvent'])
-                  ->set('idOccasion', $data['idOccasion'])
+                  ->set('idOccasion', $data['idOccasionEvent'])
                   ->set('dateEvent', $data['dateEvent'])
+                  ->set('venueEvent', $data['venueEvent'])
                  
                  ->insert($this->table);
     }

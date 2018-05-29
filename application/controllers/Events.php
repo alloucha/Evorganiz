@@ -37,8 +37,9 @@ class Events extends CI_Controller {
 		$data = array(
 			'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
 			'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
-			//'occasionEvent'=> htmlspecialchars($_POST['occasionEvent']),
+			'idOccasionEvent'=> htmlspecialchars($_POST['idOccasion']),
 			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
+			'venueEvent'=> htmlspecialchars($_POST['venueEvent']),
 			'personConcerned'=> htmlspecialchars($_POST['personConcerned'])
 		);
 
@@ -69,7 +70,7 @@ class Events extends CI_Controller {
 			'idEvent'=> htmlspecialchars($_GET['idEventToEdit']),
 			'themeEvent'=> htmlspecialchars($_POST['themeEventToEdit']), 
 			'dateEvent'=> htmlspecialchars($_POST['dateEventToEdit']),
-			'occasionEvent'=> 'a faire',
+			'idOccasion'=>  htmlspecialchars($_POST['idOccasionToEdit']),
 			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEventToEdit']),
 			'personConcerned'=> htmlspecialchars($_POST['personConcernedToEdit'])
 		);

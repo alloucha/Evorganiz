@@ -19,21 +19,26 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input type="text" class="form-control" name="dateEvent" placeholder="jj/mm/aaaa">
+                  <input type="text" class="form-control" name="dateEvent" placeholder="aaaa-mm-jj">
                 </div>
             </div>
 
             <div class="form-group">
-                <select class="form-control" title="Occasion">
+                <select class="form-control" name="idOccasion" title="Occasion">
                     <option selected>Occasion</option>
-                    <option>Anniversaire</option>
-                    <option>Fiançaille</option>
-                    <option>Mariage</option>
-                    <option>Anniversaire de mariage</option>
-                    <option>Baptême</option>
-                    <option>Remise de diplôme</option>
-                    <option>Autre</option>
+                    <option value="1">Anniversaire</option>
+                    <option value="2">Fiançaille</option>
+                    <option value="3">Mariage</option>
+                    <option value="4">Anniversaire de mariage</option>
+                    <option value="5">Baptême</option>
+                    <option value="6">Remise de diplôme</option>
+                    <option value="7">Autre</option>
                 </select>
+            </div>
+
+            <div class="form-group">
+                
+                <input type="text" class="form-control" name="personConcerned" placeholder="Personne concernée">
             </div>
 
             <div class="form-group">
@@ -43,8 +48,10 @@
 
             <div class="form-group">
                 
-                <input type="text" class="form-control" name="personConcerned" placeholder="Personne concernée">
+                <input type="text" class="form-control" name="venueEvent" placeholder="Lieu">
             </div>
+
+            
 
         
             <div class="input-group">
@@ -129,7 +136,7 @@
                             $personConcerned = $event->personConcerned;
                             $themeEvent = $event->themeEvent;
                             $venueEvent = $event->venueEvent;
-                            $budgetMaxEvent = $event->budgetMaxEvent;           
+                            $budgetMaxEvent = $event->budgetMaxEvent; 
                             
                             // for each loop iteration, a line contains all informations about one event
                             $line = '<tr>';
@@ -146,7 +153,7 @@
                                     $line = $line . '<td>' . $nameOccasion . '</td>';
                                 }
                             }
-                            
+
                             $line = $line . '<td>' . $personConcerned . '</td>';
                             $line = $line . '<td>' . $themeEvent      . '</td>';
                             $line = $line . '<td>' . $venueEvent      . '</td>';
@@ -197,19 +204,17 @@
                                                     </div>
 
                                                     <label for="dateEventToEdit">Occasion : </label>
-                                                    <select class="form-control" title="Occasion">
-                                                        <option>Anniversaire</option>
-                                                        <option>Fiançaille</option>
-                                                        <option>Mariage</option>
-                                                        <option>Anniversaire de mariage</option>
-                                                        <option>Baptême</option>
-                                                        <option>Remise de diplôme</option>
-                                                        <option>Autre</option>
+                                                    <select class="form-control" name="idOccasionToEdit">
+                                                        <option></option>
+                                                        <option value="1">Anniversaire</option>
+                                                        <option value="2">Fiançaille</option>
+                                                        <option value="3">Mariage</option>
+                                                        <option value="4">Anniversaire de mariage</option>
+                                                        <option value="5">Baptême</option>
+                                                        <option value="6">Remise de diplôme</option>
+                                                        <option value="7">Autre</option>
                                                     </select>
                                                 </div>
-
-                                               
-
 
                                                 <div class="form-group">
                                                     <label for="themeEventToEdit">Thème : </label>
