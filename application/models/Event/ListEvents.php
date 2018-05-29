@@ -45,6 +45,13 @@ class ListEvents extends CI_Model{
     }
 
 
+    public function update($data){
+
+        $this->db->where('idEvent', $data['idEvent'])
+                 ->update($this->table, $data);
+
+
+    }
 
     public function delete($id){
         

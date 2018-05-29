@@ -15,7 +15,7 @@ class Events extends CI_Controller {
 
 	public function ListEvent() {
 
-		$data['page'] = $this->tableauEvent();
+		$data['page'] = $this->tabEvent();
 
 		$data['title']= 'EVENEMENT';
 		$this->load->view("Theme/theme", $data);
@@ -23,7 +23,7 @@ class Events extends CI_Controller {
 
 	}
 
-	public function tableauEvent() {
+	public function tabEvent() {
 
 		$data['ListEvents']= $this->ListEvents->getEvents();
 
@@ -36,7 +36,7 @@ class Events extends CI_Controller {
 		$data = array(
 			'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
 			'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
-			'occasionEvent'=> htmlspecialchars($_POST['occasionEvent']),
+			//'occasionEvent'=> htmlspecialchars($_POST['occasionEvent']),
 			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
 			'personConcerned'=> htmlspecialchars($_POST['personConcerned'])
 		);
@@ -44,7 +44,7 @@ class Events extends CI_Controller {
 
 		$this->ListEvents->insert($data);
 
-		$this->index();
+		redirect(site_url('/Events'));
 	}
 
 
@@ -58,9 +58,25 @@ class Events extends CI_Controller {
 
 		} 
 
-		return $this->index();
+		redirect(site_url('/Events'));
 	}
 
+
+	public function editEvent() {
+
+		$data = array(
+			'idEvent'=> htmlspecialchars($_GET['idEventToEdit']),
+			'themeEvent'=> htmlspecialchars($_POST['themeEventToEdit']), 
+			'dateEvent'=> htmlspecialchars($_POST['dateEventToEdit']),
+			'occasionEvent'=> 'a faire',
+			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEventToEdit']),
+			'personConcerned'=> htmlspecialchars($_POST['personConcernedToEdit'])
+		);
+
+		$this->ListEvents->update($data);
+
+		redirect(site_url('/Events'));
+	}
 
 
 	

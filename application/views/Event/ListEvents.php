@@ -155,6 +155,7 @@
                             $line = $line . '<td>' . '<span class="pull-right">
 
                                                 <a class="btn" data-toggle="modal" data-target="#deleteEventModal_' . $idEvent .'" role="button"><i class="fa fa-trash-o"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#editEventModal_' . $idEvent .'" role="button"><i class="fa fa-edit"></i></a>
 
                                             </span> </td>';
 
@@ -162,6 +163,83 @@
                             $line = $line . '</tr>';
                             
                             echo  $line;
+
+
+                            $modalEditEvent ='
+                            <div class="modal fade" id="editEventModal_' . $idEvent .'"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" >
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title" id="exampleModalLabel">Modifier événement</h5>
+                                        </div>
+                            
+                                        <form method="POST" action="' . site_url("Events/editEvent?idEventToEdit=" . $idEvent) . '">
+                                            
+                                            <div class="modal-body">
+                                              
+
+
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <label for="dateEventToEdit">Date : </label>
+                                                      <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                      </div>
+                                                      <input type="text" value="' . $dateEvent . '" class="form-control" name="dateEventToEdit" placeholder="aaaa-mm-jj">
+                                                    </div>
+
+                                                    <label for="dateEventToEdit">Occasion : </label>
+                                                    <select class="form-control" title="Occasion">
+                                                        <option>Anniversaire</option>
+                                                        <option>Fiançaille</option>
+                                                        <option>Mariage</option>
+                                                        <option>Anniversaire de mariage</option>
+                                                        <option>Baptême</option>
+                                                        <option>Remise de diplôme</option>
+                                                        <option>Autre</option>
+                                                    </select>
+                                                </div>
+
+                                               
+
+
+                                                <div class="form-group">
+                                                    <label for="themeEventToEdit">Thème : </label>
+                                                    <input type="text" value="' . $themeEvent . '" class="form-control" name="themeEventToEdit" placeholder="Entrer le thème">
+
+                                                     <label for="personConcernedToEdit">Personne concernée : </label>
+                                                    <input type="text" value="' . $personConcerned . '" class="form-control" name="personConcernedToEdit" placeholder="Personne concernée">
+
+                                                    <label for="budgetMaxEventToEdit">Budget max : </label>
+                                                     <div class="input-group">
+                                                    
+                                                    <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                                    <input type="text" value="' . $budgetMaxEvent . '" class="form-control" name="budgetMaxEventToEdit" placeholder="Budget Maximum">
+                                                </div>
+
+                                                </div>
+
+
+
+                                            
+                                               
+                                       
+
+                                            </div>
+                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                                <button type="submit" class="btn btn-warning">Sauvegarder</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>';
+                            echo $modalEditEvent;
+
 
 
                              $modalDeleteEvent =
@@ -179,11 +257,11 @@
                                           <form method="POST" action="' . site_url("Events/deleteEvent") . '">
                                               <div class="modal-body">
                                                     <p>Etes-vous sûr de vouloir supprimer cet événement ?</p>
-                                                    <input type="hidden" name="idEventToDelete" id="idEditeur" value="'. $idEvent .'">
+                                                    <input type="hidden" name="idEventToDelete" id="idEventToDelete" value="'. $idEvent .'">
                                               </div>
                                               <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                                                    <button type="submit" class="btn btn-secondary">Valider</button>               
+                                                    <button type="submit" class="btn btn-warning">Valider</button>               
                                               </div>
                                          </form>
                                         </div>
