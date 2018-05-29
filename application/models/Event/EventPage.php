@@ -7,6 +7,7 @@
       protected $tableEvent ='Event';
       protected $tableBuffet ='Buffet';
       protected $tableMeal ='Meal';
+      protected $tableGuest ='Guest';
 
       public function __construct() {
          parent::__construct();
@@ -47,6 +48,18 @@
         return $result;
       }
 
+
+       public function getGuestByIdEvent($idEvent){
+
+        $result = $this->db->select()
+                         ->from('Guest g')
+                         ->join('Contact c', 'g.idContact = c.idContact')
+                         ->where('idEvent', $idEvent)
+                         ->get()
+                         ->result();
+
+        return $result;
+      }
 
 
   }

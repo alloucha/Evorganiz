@@ -2,7 +2,15 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Liste des repas</h3>
+
+            <?php 
+                if ($typeMeal=='All') {
+                    $typeMeal = 'repa';
+                }
+
+            ?>
+
+                <h3 class="box-title">Liste des <?php echo $typeMeal . 's'?></h3>
                 <div class="box-tools">
                     <div class="input-group">
                         <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search">

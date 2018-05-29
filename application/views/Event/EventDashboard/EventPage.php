@@ -21,7 +21,8 @@
     	<div class = "col-lg-6 col-md-12">
 
     		<?php
-    		    echo ($buffet);	
+    		    echo ($buffet);
+    		    echo ($guests);	
 		    
     		?>
     	</div>

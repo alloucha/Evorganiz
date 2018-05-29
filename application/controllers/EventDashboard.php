@@ -29,6 +29,7 @@ class EventDashboard extends CI_Controller {
 		if (isset($idEvent)){
 
 			$data['buffet'] = $this->getBuffet($idEvent);
+			$data['guests'] = $this->getGuests($idEvent);
 
 		} 
 
@@ -44,6 +45,15 @@ class EventDashboard extends CI_Controller {
 		$data['buffet'] = $this->EventPage->getMealByIdEvent($idEvent);
 
 		return $this->load->view("Event/EventDashboard/Buffet", $data, true);
+
+	}
+
+
+	public function getGuests($idEvent){
+
+		$data['guests'] = $this->EventPage->getGuestByIdEvent($idEvent);
+
+		return $this->load->view("Event/EventDashboard/Guests", $data, true);
 
 	}
 

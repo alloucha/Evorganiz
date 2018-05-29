@@ -29,10 +29,12 @@ class Meal extends CI_Controller {
 		if (isset($_GET['typeMeal'])){
 
 			$data['ListMeals'] = $this->meal_model->getAllMealByType($_GET['typeMeal']);
+			$data['typeMeal'] = $_GET['typeMeal'];
 
 		} else {
 
 			$data['ListMeals']= $this->meal_model->getAll();
+			$data['typeMeal'] = 'All';
 
 		}
 
