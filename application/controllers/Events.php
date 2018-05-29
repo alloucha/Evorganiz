@@ -25,7 +25,8 @@ class Events extends CI_Controller {
 
 	public function tabEvent() {
 
-		$data['ListEvents']= $this->ListEvents->getEvents();
+		$data['ListEvents'] = $this->ListEvents->getEvents();
+		$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
 
 		return $this->load->view("Event/ListEvents", $data, true);
 	}

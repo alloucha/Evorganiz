@@ -116,12 +116,7 @@
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Nb d'invités</th>
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Budget Max</th>
-
-                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"></th>
-
-                </tr></thead>
     
-                
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
 
                     <?php
@@ -130,7 +125,7 @@
                         foreach ($ListEvents as $event) {
                             $idEvent = $event->idEvent;
                             $dateEvent = $event->dateEvent;
-                            $occasionEvent = $event->occasionEvent;
+                            $idOccasionEvent = $event->idOccasion;
                             $personConcerned = $event->personConcerned;
                             $themeEvent = $event->themeEvent;
                             $venueEvent = $event->venueEvent;
@@ -140,7 +135,18 @@
                             $line = '<tr>';
                             $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $idEvent . '</a></td>';                  
                             $line = $line . '<td>' . $dateEvent       . '</td>';
-                            $line = $line . '<td>' . $occasionEvent   . '</td>';
+
+                            //recover name occasion by id
+                            foreach ($ListOccasions as $occasion){
+
+                                $idOccasion = $occasion->idOccasion;
+
+                                if ($idOccasionEvent==$idOccasion) {
+                                    $nameOccasion = $occasion->nameOccasion;
+                                    $line = $line . '<td>' . $nameOccasion . '</td>';
+                                }
+                            }
+                            
                             $line = $line . '<td>' . $personConcerned . '</td>';
                             $line = $line . '<td>' . $themeEvent      . '</td>';
                             $line = $line . '<td>' . $venueEvent      . '</td>';
@@ -148,16 +154,15 @@
                             $line = $line . '<td>' . $budgetMaxEvent  . '</td>'; ////////// attention calculer nb invité !!!!!!!!
 
                             // Add a button to delete or edit an event
-                            // $line = $line . '<td class="row">';
+                            $line = $line . '<td class="row">';
 
-                            ////////to do buttton 
 
-                            $line = $line . '<td>' . '<span class="pull-right">
+                            $line = $line . '<span class="pull-right">
 
-                                                <a class="btn" data-toggle="modal" data-target="#deleteEventModal_' . $idEvent .'" role="button"><i class="fa fa-trash-o"></i></a>
                                                 <a class="btn" data-toggle="modal" data-target="#editEventModal_' . $idEvent .'" role="button"><i class="fa fa-edit"></i></a>
+                                                <a class="btn" data-toggle="modal" data-target="#deleteEventModal_' . $idEvent .'" role="button"><i class="fa fa-trash-o"></i></a>
 
-                                            </span> </td>';
+                                            </span>';
 
 
                             $line = $line . '</tr>';
@@ -215,18 +220,11 @@
 
                                                     <label for="budgetMaxEventToEdit">Budget max : </label>
                                                      <div class="input-group">
-                                                    
-                                                    <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                                        <span class="input-group-addon"><i class="fa fa-euro"></i></span>
                                                     <input type="text" value="' . $budgetMaxEvent . '" class="form-control" name="budgetMaxEventToEdit" placeholder="Budget Maximum">
                                                 </div>
 
                                                 </div>
-
-
-
-                                            
-                                               
-                                       
 
                                             </div>
                             
@@ -239,8 +237,6 @@
                                 </div>
                             </div>';
                             echo $modalEditEvent;
-
-
 
                              $modalDeleteEvent =
                             '<div class="modal fade" id="deleteEventModal_' . $idEvent .'" tabindex="-1" role="dialog">
@@ -292,6 +288,4 @@
             </div>
         </div><!-- /.box-body -->
     </div><!-- /.box -->
-</div>
-</div>
 </div>

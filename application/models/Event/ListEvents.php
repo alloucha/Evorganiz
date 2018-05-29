@@ -5,6 +5,7 @@ class ListEvents extends CI_Model{
 
 
     protected $table ='Event';
+    protected $table2 ='OccasionEvent';
 
     public function __construct() {
        parent::__construct();
@@ -21,24 +22,23 @@ class ListEvents extends CI_Model{
        return $result;
     }
 
+    public function getAllOccasions(){
 
-    public function getNameEventById($id) {
-        
-       $result = $this->db->select('nameEvent')
-                       ->from($this->table)
-                       ->where('idEvent', $id)
-                       ->get()
-                       ->result();
+      $result = $this->db->select()
+                         ->from('OccasionEvent')
+                         ->get()
+                         ->result();
 
         return $result;
     }
+
 
      public function insert($data){
         
         $this->db->set('themeEvent', $data['themeEvent'])
                   ->set('personConcerned', $data['personConcerned'])
                   ->set('budgetMaxEvent', $data['budgetMaxEvent'])
-                  ->set('occasionEvent', $data['occasionEvent'])
+                  ->set('idOccasion', $data['idOccasion'])
                   ->set('dateEvent', $data['dateEvent'])
                  
                  ->insert($this->table);
