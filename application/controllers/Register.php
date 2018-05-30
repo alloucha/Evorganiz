@@ -14,7 +14,7 @@ class Register extends CI_Controller {
 
     public function register(){
 
-        return $this->load->view("Login/registerPage");
+        return $this->load->view("User/registerPage");
 
     }
 

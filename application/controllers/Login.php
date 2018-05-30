@@ -14,8 +14,7 @@ class Login extends CI_Controller {
 
 	public function login(){
 
-		return $this->load->view("Login/loginPage");
-
+		return $this->load->view("User/loginPage");
 	}
 
 
