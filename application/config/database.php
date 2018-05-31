@@ -82,10 +82,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'evorganiz',
+	'hostname' => 'ivgz2rnl5rh7sphb.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+	'username' => 'm2k48m0iba6u19t2',
+	'password' => 'i0iw56t9vmf8n623',
+	'database' => 'p23o2g817jwn7i0q',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
