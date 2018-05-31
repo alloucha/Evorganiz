@@ -17,7 +17,7 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Identification à Evorganiz</div>
-            <form action="<?php echo site_url('Login/checkUser')?>" method="post">
+            <form action="<?php echo site_url('Login/login')?>" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" name="mailUser" test class="form-control" placeholder="adresse mail">
