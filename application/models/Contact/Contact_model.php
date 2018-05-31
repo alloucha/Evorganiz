@@ -9,11 +9,12 @@ class Contact_model extends CI_Model{
        parent::__construct();
     } 
 
-    
-    public function getAll() {
+
+    public function getAllContacts($idUser) {
         
        $result = $this->db->select()
                        ->from($this->table)
+                       ->where('idUser', $idUser)
                        ->get()
                        ->result();
 
@@ -41,6 +42,7 @@ class Contact_model extends CI_Model{
                  ->set('streetContact', $data['streetContact'])
                  ->set('zipCodeContact', $data['zipCodeContact'])
                  ->set('townContact', $data['townContact'])
+                 ->set('idUser', $data['idUser'])
                  ->insert($this->table);
     }
 

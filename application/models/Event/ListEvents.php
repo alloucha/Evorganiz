@@ -24,7 +24,7 @@ class ListEvents extends CI_Model{
     }
 
 
-    public function getEventsByIdUser($idUser){
+    public function getAllEvents($idUser){
 
       $result = $this->db->select()
                        ->from($this->table)
@@ -48,10 +48,12 @@ class ListEvents extends CI_Model{
     }
 
 
-    public function getAllGuests(){
+    public function getAllGuests($idUser){
 
       $result = $this->db->select()
-                         ->from('Guest')
+                         ->from('Event e')
+                         ->join('Guest g', 'e.idEvent = g.idEvent')
+                         ->where('idUser', $idUser)
                          ->get()
                          ->result();
 
@@ -67,6 +69,7 @@ class ListEvents extends CI_Model{
                   ->set('idOccasion', $data['idOccasionEvent'])
                   ->set('dateEvent', $data['dateEvent'])
                   ->set('venueEvent', $data['venueEvent'])
+                  ->set('idUser', $data['idUser'])
                  
                  ->insert($this->table);
     }
