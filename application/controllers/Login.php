@@ -27,21 +27,35 @@ class Login extends CI_Controller {
             'password'=> htmlspecialchars($_POST['passwordUser'])
         );
 
-		$User = $this->User_model->getUserByMailPassword($data);
+		$UserInfo = $this->User_model->getUserByMailPassword($data);
 
-		if (empty($User)){
+		if (empty($UserInfo)){
 			redirect(site_url('/Login'));
 		
 		} else {
 
-			foreach ($User as $id) {
-				$user = $id->idUser;
+			foreach ($UserInfo as $id) {
+				$idUser = $id->idUser;
 			}
-			
-			set_cookie('nameCookie', $user, '60');
+
+			$crypted = $this->encryption->encrypt($idUser);
+
+			set_cookie('nameCookie', $crypted, '60');
 
 			redirect(site_url('/Events'));
 		}
+		
+	}
+
+
+	public function logout(){
+
+	
+		delete_cookie('nameCookie');
+
+		var_dump(get_cookie('nameCookie'));
+
+		redirect(site_url('/Login'));
 		
 	}
 
