@@ -37,8 +37,8 @@ class Login extends CI_Controller {
 			foreach ($User as $id) {
 				$user = $id->idUser;
 			}
-
-			set_cookie('nameCookie', $user['idUser'], time() + 60, null, null, false,true);
+			
+			set_cookie('nameCookie', $user, '60');
 
 			redirect(site_url('/Events'));
 		}
