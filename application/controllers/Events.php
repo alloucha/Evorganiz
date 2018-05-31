@@ -16,21 +16,32 @@ class Events extends CI_Controller {
 	public function ListEvent() {
 
 		$data['page'] = $this->tabEvent();
-
 		$data['title']= 'EVENEMENT';
 		$this->load->view("Theme/theme", $data);
-
-
 	}
 
 	public function tabEvent() {
 
-		$data['ListEvents'] = $this->ListEvents->getEvents();
-		$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
-		$data['ListGuests'] = $this->ListEvents->getAllGuests();
+		if (!empty(get_cookie('nameCookie'))){
 
-		return $this->load->view("Event/ListEvents", $data, true);
+			$idUser = get_cookie('nameCookie');
+
+			$idUser = $this->encryption->decrypt($idUser);
+
+			$data['ListEvents'] = $this->ListEvents->getEventsByIdUser($idUser);
+			$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
+			$data['ListGuests'] = $this->ListEvents->getAllGuests();
+
+			return $this->load->view("Event/ListEvents", $data, true);
+
+		} else {
+
+			redirect(site_url('/Login'));
+		}
+
+		
 	}
+
 
 
 	public function addEvent() {

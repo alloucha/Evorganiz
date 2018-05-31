@@ -3,7 +3,6 @@
 
 class ListEvents extends CI_Model{
 
-
     protected $table ='Event';
     protected $table2 ='OccasionEvent';
     protected $table3 ='Guest';
@@ -22,6 +21,19 @@ class ListEvents extends CI_Model{
                        ->result();
 
        return $result;
+    }
+
+
+    public function getEventsByIdUser($idUser){
+
+      $result = $this->db->select()
+                       ->from($this->table)
+                       ->where('idUser', $idUser)
+                       ->get()
+                       ->result();
+
+       return $result;
+
     }
 
 

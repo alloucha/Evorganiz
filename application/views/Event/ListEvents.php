@@ -1,3 +1,23 @@
+<!DOCTYPE html-->
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <title>AdminLTE | Data Tables</title>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- bootstrap 3.0.2 -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- font Awesome -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Ionicons -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <!-- DATA TABLES -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+        <!-- Theme style -->
+        <link href="<?php echo base_url() ?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
+
+    <style></style></head>
+<body>
 <div class="col-md-4">
   <div class="box box-warning collapsed-box">
     <div class="box-header with-border">
@@ -317,3 +337,28 @@
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>
+</tr></thead></table></div></div></div></div></div>
+
+
+<script src="<?php echo base_url() ?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="<?php echo base_url() ?>AdminLTE/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+
+<script src="<?php echo base_url() ?>AdminLTE/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
+<script src="<?php echo base_url() ?>AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+</script>
+</body></html>
