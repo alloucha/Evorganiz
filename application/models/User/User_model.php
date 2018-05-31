@@ -20,6 +20,30 @@ class User_model extends CI_Model{
                  ->insert($this->table);
     }
 
+
+    public function getUserByMailPassword($data){
+
+        $result = $this->db->select()
+                  ->from($this->table)
+                  ->where('mailUser', $data['mail'])
+                  ->where('passwordUser', $data['password'])
+                  ->get()
+                  ->result();
+
+        return $result;
+    }
+
+
+    public function getUserByIdUser($id){
+
+        $result = $this->db->select()
+                          ->from($this->table)
+                          ->where('idUser', $id)
+                          ->get()
+                          ->result();
+
+        return $result;
+    }
 }
 
 ?>

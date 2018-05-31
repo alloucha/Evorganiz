@@ -12,24 +12,18 @@
 
         <link rel="icon" href="<?php echo base_url() ?>AdminLTE/logo.png">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body class="bg-black" style="">
 
         <div class="form-box" id="login-box">
             <div class="header">Identification à Evorganiz</div>
-            <form action="<?php echo base_url() ?>AdminLTE/index.html" method="post">
+            <form action="<?php echo site_url('Login/checkUser')?>" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="userid" class="form-control" placeholder="adresse mail">
+                        <input type="text" name="mailUser" test class="form-control" placeholder="adresse mail">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="mot de passe">
+                        <input type="password" name="passwordUser" class="form-control" placeholder="mot de passe">
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"> Se souvenir de moi
