@@ -8,19 +8,13 @@ class Login extends CI_Controller {
 		$this->load->model('User/User_model');		
 	}
 
+
 	public function index() {
-		$this->login();
+		return $this->load->view("User/loginPage");
 	}
 
 
 	public function login(){
-
-		return $this->load->view("User/loginPage");
-
-	}
-
-
-	public function checkUser(){
 
 		$data = array(
             'mail'=> htmlspecialchars($_POST['mailUser']),
@@ -30,6 +24,7 @@ class Login extends CI_Controller {
 		$UserInfo = $this->User_model->getUserByMailPassword($data);
 
 		if (empty($UserInfo)){
+			
 			redirect(site_url('/Login'));
 		
 		} else {
@@ -38,32 +33,21 @@ class Login extends CI_Controller {
 				$idUser = $id->idUser;
 			}
 
-			$crypted = $this->encryption->encrypt($idUser);
+			$idUser = $this->encryption->encrypt($idUser);
 
-			set_cookie('nameCookie', $crypted, '60');
+			set_cookie('idUserCookie', $idUser, '60');
 
 			redirect(site_url('/Events'));
-		}
-		
+		}		
 	}
 
 
 	public function logout(){
 
-	
-		delete_cookie('nameCookie');
-
-		var_dump(get_cookie('nameCookie'));
+		delete_cookie('idUserCookie');
 
 		redirect(site_url('/Login'));
-		
 	}
-
-
-	public function displayProfil(){
-
-	}
-
 
 }
 

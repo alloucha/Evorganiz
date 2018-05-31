@@ -7,74 +7,128 @@ class Contact extends CI_Controller {
     {
       parent::__construct();
       $this->load->model('Contact/Contact_model');
+      $this->load->model('User/User_model');
     }
 
     public function index() {
-        $this->ListContact();
+        $this->ListContacts();
     }
 
-    public function ListContact() {
+    public function ListContacts() {
 
-        $data['page'] = $this->tabContact();
-
+        $data['page'] = $this->tableContacts();
         $data['title']= 'CONTACT';
         $this->load->view("Theme/theme", $data);
     }
 
 
-    public function tabContact() {
+    public function tableContacts() {
 
-        $data['ListContact']= $this->Contact_model->getAll();
+        if (!empty(get_cookie('idUserCookie'))){
 
-        return $this->load->view("Contact/Contact_view", $data, true);
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $data['ListContact']= $this->Contact_model->getAllContacts($idUser);
+                return $this->load->view("Contact/Contact_view", $data, true);
+
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
     }
 
 
     public function addContact() {  
 
-        $data = array(
-            'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
-            'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
-            'telContact'=> htmlspecialchars($_POST['telephoneContact']),
-            'streetContact'=> htmlspecialchars($_POST['streetContact']),
-            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
-            'townContact'=> htmlspecialchars($_POST['townContact']),
-        );
+        if (!empty(get_cookie('idUserCookie'))){
 
-        $this->Contact_model->insert($data);
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
 
-        redirect(site_url('/Contact'));
+            if (!empty($userInfo)){
+
+                $data = array(
+                    'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
+                    'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
+                    'telContact'=> htmlspecialchars($_POST['telephoneContact']),
+                    'streetContact'=> htmlspecialchars($_POST['streetContact']),
+                    'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
+                    'townContact'=> htmlspecialchars($_POST['townContact']),
+                    'idUser'=> $idUser
+                );
+
+                $this->Contact_model->insert($data);
+                redirect(site_url('/Contact'));
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
     }
 
 
     public function deleteContact() {
 
-        $idContact = $_POST['idContactToDelete'];
+        if (!empty(get_cookie('idUserCookie'))){
 
-        if (isset($idContact)){
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
 
-            $this->Contact_model->delete($idContact);
-        } 
+            if (!empty($userInfo)){
 
-        redirect(site_url('/Contact'));
+                $idContact = $_POST['idContactToDelete'];
+
+                if (isset($idContact)){
+
+                    $this->Contact_model->delete($idContact);
+                } 
+
+                redirect(site_url('/Contact'));
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
     }
 
 
     public function editContact() {
 
-        $data = array(
-            'idContact'=> htmlspecialchars($_GET['idContactToEdit']),
-            'lastnameContact'=> htmlspecialchars($_POST['lastnameContactToEdit']),
-            'firstnameContact'=> htmlspecialchars($_POST['firstnameContactToEdit']),
-            'telContact'=> htmlspecialchars($_POST['telephoneContactToEdit']),
-            'streetContact'=> htmlspecialchars($_POST['streetContactToEdit']),
-            'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContactToEdit']),
-            'townContact'=> htmlspecialchars($_POST['townContactToEdit']),
-        );
+        if (!empty(get_cookie('idUserCookie'))){
 
-        $this->Contact_model->update($data);
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
 
-        redirect(site_url('/Contact'));
+            if (!empty($userInfo)){
+
+                $data = array(
+                    'idContact'=> htmlspecialchars($_GET['idContactToEdit']),
+                    'lastnameContact'=> htmlspecialchars($_POST['lastnameContactToEdit']),
+                    'firstnameContact'=> htmlspecialchars($_POST['firstnameContactToEdit']),
+                    'telContact'=> htmlspecialchars($_POST['telephoneContactToEdit']),
+                    'streetContact'=> htmlspecialchars($_POST['streetContactToEdit']),
+                    'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContactToEdit']),
+                    'townContact'=> htmlspecialchars($_POST['townContactToEdit']),
+                );
+
+                $this->Contact_model->update($data);
+                redirect(site_url('/Contact'));
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
     }
-
 }

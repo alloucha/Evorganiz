@@ -7,91 +7,133 @@ class Events extends CI_Controller {
 	{
 	  parent::__construct();
 	  $this->load->model('Event/ListEvents');
+	  $this->load->model('User/User_model');
 	}
 
 	public function index() {
-		$this->ListEvent();
+		$this->ListEvents();
 	}
 
-	public function ListEvent() {
+	public function ListEvents() {
 
-		$data['page'] = $this->tabEvent();
+		$data['page'] = $this->tableEvents();
 		$data['title']= 'EVENEMENT';
 		$this->load->view("Theme/theme", $data);
 	}
 
-	public function tabEvent() {
+	public function tableEvents() {
 
-		if (!empty(get_cookie('nameCookie'))){
+		if (!empty(get_cookie('idUserCookie'))){
 
-			$idUser = get_cookie('nameCookie');
-
+			$idUser = get_cookie('idUserCookie');
 			$idUser = $this->encryption->decrypt($idUser);
+			$userInfo = $this->User_model->getUserByIdUser($idUser);
 
-			$data['ListEvents'] = $this->ListEvents->getEventsByIdUser($idUser);
-			$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
-			$data['ListGuests'] = $this->ListEvents->getAllGuests();
+			if (!empty($userInfo)){
 
-			return $this->load->view("Event/ListEvents", $data, true);
+				$data['ListEvents'] = $this->ListEvents->getAllEvents($idUser);
+				$data['ListOccasions'] = $this->ListEvents->getAllOccasions();
+				$data['ListGuests'] = $this->ListEvents->getAllGuests($idUser);
+
+				return $this->load->view("Event/ListEvents", $data, true);
+			
+			} else {
+				redirect(site_url('/Register'));
+			}
 
 		} else {
-
 			redirect(site_url('/Login'));
-		}
-
-		
+		}	
 	}
-
 
 
 	public function addEvent() {
 		
-		$data = array(
-			'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
-			'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
-			'idOccasionEvent'=> htmlspecialchars($_POST['idOccasion']),
-			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
-			'venueEvent'=> htmlspecialchars($_POST['venueEvent']),
-			'personConcerned'=> htmlspecialchars($_POST['personConcerned'])
-		);
+		if (!empty(get_cookie('idUserCookie'))){
 
+			$idUser = get_cookie('idUserCookie');
+			$idUser = $this->encryption->decrypt($idUser);
+			$userInfo = $this->User_model->getUserByIdUser($idUser);
 
-		$this->ListEvents->insert($data);
+			if (!empty($userInfo)){
 
-		redirect(site_url('/Events'));
+				$data = array(
+					'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
+					'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
+					'idOccasionEvent'=> htmlspecialchars($_POST['idOccasion']),
+					'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
+					'venueEvent'=> htmlspecialchars($_POST['venueEvent']),
+					'personConcerned'=> htmlspecialchars($_POST['personConcerned']),
+					'idUser'=> $idUser
+				);
+
+				$this->ListEvents->insert($data);
+				redirect(site_url('/Events'));
+			} else {
+
+				redirect(site_url('/Register'));
+			}
+
+		} else {
+			redirect(site_url('/Login'));
+		}
 	}
 
 
 	public function deleteEvent() {
 
-		$idEvent = $_POST['idEventToDelete'];
+		if (!empty(get_cookie('idUserCookie'))){
 
-		if (isset($idEvent)){
+			$idUser = get_cookie('idUserCookie');
+			$idUser = $this->encryption->decrypt($idUser);
+			$userInfo = $this->User_model->getUserByIdUser($idUser);
 
-			$this->ListEvents->delete($idEvent);
+			if (!empty($userInfo)){
 
-		} 
+				$idEvent = $_POST['idEventToDelete'];
 
-		redirect(site_url('/Events'));
+				if (isset($idEvent)){
+					$this->ListEvents->delete($idEvent);
+				} 
+
+				redirect(site_url('/Events'));
+			} else {
+				redirect(site_url('/Register'));
+			}
+		} else {
+			redirect(site_url('/Login'));
+		}
 	}
 
 
 	public function editEvent() {
 
-		$data = array(
-			'idEvent'=> htmlspecialchars($_GET['idEventToEdit']),
-			'themeEvent'=> htmlspecialchars($_POST['themeEventToEdit']), 
-			'dateEvent'=> htmlspecialchars($_POST['dateEventToEdit']),
-			'idOccasion'=>  htmlspecialchars($_POST['idOccasionToEdit']),
-			'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEventToEdit']),
-			'personConcerned'=> htmlspecialchars($_POST['personConcernedToEdit'])
-		);
+		if (!empty(get_cookie('idUserCookie'))){
 
-		$this->ListEvents->update($data);
+			$idUser = get_cookie('idUserCookie');
+			$idUser = $this->encryption->decrypt($idUser);
+			$userInfo = $this->User_model->getUserByIdUser($idUser);
 
-		redirect(site_url('/Events'));
+			if (!empty($userInfo)){
+
+				$data = array(
+					'idEvent'=> htmlspecialchars($_GET['idEventToEdit']),
+					'themeEvent'=> htmlspecialchars($_POST['themeEventToEdit']), 
+					'dateEvent'=> htmlspecialchars($_POST['dateEventToEdit']),
+					'idOccasion'=>  htmlspecialchars($_POST['idOccasionToEdit']),
+					'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEventToEdit']),
+					'personConcerned'=> htmlspecialchars($_POST['personConcernedToEdit'])
+				);
+
+				$this->ListEvents->update($data);
+				redirect(site_url('/Events'));
+			} else {
+
+				redirect(site_url('/Register'));
+			}
+		} else {
+			redirect(site_url('/Login'));
+		}			
 	}
-
-
-	
 }
+?>
