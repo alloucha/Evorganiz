@@ -23,14 +23,16 @@
         <!-- Theme style -->
         <link href="../AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-        <link rel="icon" href="<?php echo base_url() ?>AdminLTE/logo.png">
+        <link rel="icon" href="../AdminLTE/logo.png">
 
 
-        <!-- jQuery 2.0.2 -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/jquery.min.js"></script>
 
         <!-- jQuery UI 1.10.3 -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+        <script src="../AdminLTE/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+
+        <!-- jQuery 2.0.2 -->
+        <script src="../AdminLTE/js/jquery.min.js"></script>
+
 
 
 
