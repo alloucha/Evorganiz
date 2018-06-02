@@ -5,36 +5,29 @@
         <title><?php echo $title?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="../AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!-- font Awesome -->
-        <link href="../AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Ionicons -->
-        <link href="../AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <!-- Morris chart -->
-        <link href="../AdminLTE/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/morris/morris.css" rel="stylesheet" type="text/css" />
         <!-- jvectormap -->
-        <link href="../AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <!-- fullCalendar -->
-        <link href="../AdminLTE/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
         <!-- Daterange picker -->
-        <link href="../AdminLTE/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- bootstrap wysihtml5 - text editor -->
-        <link href="../AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="../AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-        <link rel="icon" href="../AdminLTE/logo.png">
-
-
-
-        <!-- jQuery 2.0.2 -->
-        <script src="../AdminLTE/js/jquery.min.js"></script>
-
-
-
+        <link rel="icon" href="<?php echo site_url()?>AdminLTE/logo.png">
 
 
     </head>
+
     <body class="skin-black">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
@@ -55,82 +48,7 @@
 
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope"></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li><!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../AdminLTE/img/avatar3.png" class="img-circle" alt="User Image"/>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li><!-- end message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../AdminLTE/img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    AdminLTE Design Team
-                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../AdminLTE/img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Developers
-                                                    <small><i class="fa fa-clock-o"></i> Today</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../AdminLTE/img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Sales Department
-                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="../AdminLTE/img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Reviewers
-                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
-                        </li>
+                       
                         <!-- Notifications: style can be found in dropdown.less -->
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -197,45 +115,7 @@
                                                 </div>
                                             </a>
                                         </li><!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Create a nice theme
-                                                    <small class="pull-right">40%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">40% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li><!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Some task I need to do
-                                                    <small class="pull-right">60%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">60% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li><!-- end task item -->
-                                        <li><!-- Task item -->
-                                            <a href="#">
-                                                <h3>
-                                                    Make beautiful transitions
-                                                    <small class="pull-right">80%</small>
-                                                </h3>
-                                                <div class="progress xs">
-                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                        <span class="sr-only">80% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li><!-- end task item -->
+                    
                                     </ul>
                                 </li>
                                 <li class="footer">
@@ -247,36 +127,54 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Jane Doe <i class="caret"></i></span>
+                                <span> 
+                                    <?php 
+                                    foreach ($userInfo as $user) {
+                                        
+                                        $lastnameUser = $user->lastnameUser;
+                                        $firstnameUser = $user->firstnameUser;
+                                        $sexUser = $user->sexUser;
+                                        $username = $user->username;
+
+                                        echo ($lastnameUser . ' ' . $firstnameUser); 
+                                    }
+                                    ?>
+
+                                <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="../AdminLTE/img/avatar3.png" class="img-circle" alt="User Image" />
+
+                                    <?php
+
+                                        if ($sexUser=='NotDefined') {
+                                            echo '<img src="'. site_url() . 'AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
+                                        } elseif ($sexUser=='Homme') {
+                                            echo '<img src="'. site_url() . 'AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
+                                        } else {
+                                            echo '<img src="'. site_url() . 'AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
+                                        }
+
+                                    ?>
+
+                                    
                                     <p>
-                                        Jane Doe - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        <?php echo ($lastnameUser . ' ' . $firstnameUser); ?>
+
+                                        <small><?php echo $username; ?></small>
+
+                                        <small><?php if ($sexUser=='Homme' || $sexUser=='Femme'){ echo $sexUser;}?></small>
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </li>
+                               
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="Login/logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="Login/logout" class="btn btn-default btn-flat">Se déconnecter</a>
                                     </div>
                                 </li>
                             </ul>
@@ -293,10 +191,20 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../AdminLTE/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <?php
+
+                                if ($sexUser=='NotDefined') {
+                                    echo '<img src="'. site_url() . 'AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
+                                } elseif ($sexUser=='Homme') {
+                                    echo '<img src="'. site_url() . 'AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
+                                } else {
+                                    echo '<img src="'. site_url() . 'AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
+                                }
+
+                            ?>
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Jane</p>
+                            <p>Bonjour <?php echo $firstnameUser; ?></p>
 
                             
                         </div>
@@ -332,12 +240,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                              <ul class="treeview-menu">
-                                <li><a href="AdminLTE/pages/examples/invoice.html"><i class="fa fa-angle-double-right"></i> Décoration</a></li>
-                                <li><a href="AdminLTE/pages/examples/login.html"><i class="fa fa-angle-double-right"></i> Art de la table</a></li>
-                                <li><a href="AdminLTE/pages/examples/register.html"><i class="fa fa-angle-double-right"></i> Voiture</a></li>
-                                <li><a href="AdminLTE/pages/examples/lockscreen.html"><i class="fa fa-angle-double-right"></i> Salle</a></li>
-                                <li><a href="AdminLTE/pages/examples/404.html"><i class="fa fa-angle-double-right"></i> Souvenir</a></li>
-                                <li><a href="AdminLTE/pages/examples/404.html"><i class="fa fa-angle-double-right"></i> Autre</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Décoration</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Art de la table</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Voiture</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Salle</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Souvenir</a></li>
+                                <li><a href=""><i class="fa fa-angle-double-right"></i> Autre</a></li>
                             </ul>
                     
                         </li>
@@ -363,11 +271,7 @@
                                 <small class="badge pull-right bg-red">3</small>
                             </a>
                         </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-picture-o"></i> <span>Gallerie</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -386,7 +290,7 @@
 
                 <!-- Main content -->
               
-                <section class="content">
+                <section class="content" >
 
                     <?php echo $page; ?>
 
@@ -399,20 +303,21 @@
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
 
-        
+          <!-- jQuery 2.0.2 -->
+        <script src="<?php echo site_url()?>AdminLTE/js/jquery.min.js"></script>
+
         <!-- Bootstrap -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?php echo base_url() ?>AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
         
         <!-- daterangepicker -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>AdminLTE/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
         <!-- Bootstrap WYSIHTML5 -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
         <!-- AdminLTE App -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
-
+        <script src="<?php echo site_url()?>AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
     </body>
 </html>

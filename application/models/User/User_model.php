@@ -15,18 +15,19 @@ class User_model extends CI_Model{
         
         $this->db ->set('firstnameUser', $data['firstnameUser'])
                   ->set('lastnameUser', $data['lastnameUser'])
-                  ->set('mailUser', $data['mailUser'])
-                  ->set('passwordUser', $data['passwordUser'])     
+                  ->set('username', $data['username'])
+                  ->set('password', $data['password'])
+                  ->set('sexUser', $data['sexUser'])     
                  ->insert($this->table);
     }
 
 
-    public function getUserByMailPassword($data){
+    public function getUserByUsernamePassword($data){
 
         $result = $this->db->select()
                   ->from($this->table)
-                  ->where('mailUser', $data['mail'])
-                  ->where('passwordUser', $data['password'])
+                  ->where('username', $data['username'])
+                  ->where('password', $data['password'])
                   ->get()
                   ->result();
 
@@ -44,6 +45,7 @@ class User_model extends CI_Model{
 
         return $result;
     }
+
 }
 
 ?>
