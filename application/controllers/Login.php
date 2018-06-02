@@ -17,15 +17,19 @@ class Login extends CI_Controller {
 	public function login(){
 
 		$data = array(
-            'mail'=> htmlspecialchars($_POST['mailUser']),
-            'password'=> htmlspecialchars($_POST['passwordUser'])
+            'username'=> htmlspecialchars($_POST['username']),
+            'password'=> htmlspecialchars($_POST['password'])
         );
 
-		$UserInfo = $this->User_model->getUserByMailPassword($data);
+		define("PREFIX", "bjgbsemiogyibl-zohys-ùà");
+        define("SUFFIX", "7Y65RHJGN865NEG9hgr");
+        $data['password'] = md5( sha1(PREFIX) . $data['password'] . sha1(SUFFIX) );
+
+		$UserInfo = $this->User_model->getUserByUsernamePassword($data);
 
 		if (empty($UserInfo)){
 			
-			redirect(site_url('/Login'));
+			redirect(site_url('Login'));
 		
 		} else {
 
@@ -35,9 +39,8 @@ class Login extends CI_Controller {
 
 			$idUser = $this->encryption->encrypt($idUser);
 
-			set_cookie('idUserCookie', $idUser, '60');
-
-			redirect(site_url('/Events'));
+			set_cookie('idUserCookie', $idUser, '3660');
+			redirect(site_url('Events'));
 		}		
 	}
 
@@ -46,7 +49,7 @@ class Login extends CI_Controller {
 
 		delete_cookie('idUserCookie');
 
-		redirect(site_url('/Login'));
+		redirect(site_url('Login'));
 	}
 
 }

@@ -20,19 +20,46 @@ class Register extends CI_Controller {
 
     public function addUser(){
         
+
         $data = array(
-            'firstnameUser'=> htmlspecialchars($_POST['firstnameUser']),
-            'lastnameUser'=> htmlspecialchars($_POST['lastnameUser']),
-            'mailUser'=> htmlspecialchars($_POST['mailUser']),
-            'passwordUser'=> htmlspecialchars($_POST['passwordUser'])
+            'firstnameUser'=> ucfirst(htmlspecialchars($_POST['firstnameUser'])),
+            'lastnameUser'=> strtoupper(htmlspecialchars($_POST['lastnameUser'])),
+            'username'=> htmlspecialchars($_POST['username']),
+            'password'=> htmlspecialchars($_POST['password']),
+            'sexUser'=> htmlspecialchars($_POST['sexUser'])
         );
 
-        $this->User_model->insert($data);
+        if (isset($data['username']) && isset($data['password'])){
 
-        redirect(site_url('/Login'));
+            $this->form_validation->set_rules('username', 'Identifiant', 'required|is_unique[User.username]',
+            array(
+            'required'      => 'You have not provided %s.',
+            'is_unique'     => 'This %s already exists.'
+                    )
+            );
+
+            $this->form_validation->set_rules('password', 'Mot de passe', 'required|min_length[6]');
+            
+            if ($this->form_validation->run('username') == FALSE)
+            {
+                $data['usernameAlreadyUsed'] = $data['username'];
+                $this->load->view('User/loginPage', $data);
+                
+            } elseif ($this->form_validation->run() == FALSE) {
+
+                redirect(site_url('Register'));
+
+            } else {
+                define("PREFIX", "bjgbsemiogyibl-zohys-ùà");
+                define("SUFFIX", "7Y65RHJGN865NEG9hgr");
+                $data['password'] = md5( sha1(PREFIX) . $data['password'] . sha1(SUFFIX) );
+                
+                $this->User_model->insert($data);
+
+                redirect(site_url('Login'));
+            }
+        }
     }
-
-
 }
 
 ?>

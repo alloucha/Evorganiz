@@ -16,26 +16,32 @@
     <body class="bg-black" style="">
 
         <div class="form-box" id="login-box">
-            <div class="header">Inscription à Evorganiz</div>
+            <div class="header">Inscription à Evorganiz </div>
             <form action="<?php echo site_url('Register/addUser')?>" method="post" data-toggle="validator" role="form">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" name="lastnameUser" class="form-control" placeholder="NOM">
                         <input type="text" name="firstnameUser" class="form-control" placeholder="Prénom">  
                     </div>
+                     
+                    <input type="radio" name="sexUser" value="NotDefined" style="display:none" checked>
+                    <label class="radio-inline"><input type="radio" name="sexUser" value="Homme">Homme</label>
+                    <label class="radio-inline"><input type="radio" name="sexUser" value="Femme">Femme</label>
+
                     <div class="form-group">
-                        <input type="email" name="mailUser" class="form-control" placeholder="adresse mail*" data-error="adresse mail invalide" required>
-                        <div class="help-block with-errors"></div>
+                        <input type="text" data-minlength="6" name="username" class="form-control" placeholder="identifiant*" required>
+                        <div class="help-block with-errors"></div>                        
                     </div>
+
                     <div class="form-group">
-                        <input type="password" data-minlength="6" name="passwordUser" id="inputPassword" class="form-control" placeholder="mot de passe*" required>
+                        <input type="password" data-minlength="6" name="password" id="inputPassword" class="form-control" placeholder="mot de passe*" required>
                         <div class="help-block with-errors"></div>                        
                     </div>
                     <div class="form-group">
                         <input type="password" data-minlength="6" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Ouuups, les mots de passe ne correspondent pas !" placeholder="confirmer mot de passe*" required>
                         <div class="help-block">Minimum 6 caractères</div>
                         <div class="help-block with-errors"></div>
-                      </div>
+                    </div>
 
                 </div>
                 <div class="footer">                    

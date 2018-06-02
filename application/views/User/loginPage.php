@@ -16,14 +16,14 @@
     <body class="bg-black" style="">
 
         <div class="form-box" id="login-box">
-            <div class="header">Identification à Evorganiz</div>
+            <div class="header">Identification à Evorganiz </div>
             <form action="<?php echo site_url('Login/login')?>" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="mailUser" test class="form-control" placeholder="adresse mail">
+                        <input type="text" name="username" test class="form-control" placeholder="identifiant" <?php if (isset($usernameAlredeadyUsed)){ echo 'value="' . $usernameAlreadyUsed . '"' ; } ?>>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="passwordUser" class="form-control" placeholder="mot de passe">
+                        <input type="password" name="password" class="form-control" placeholder="mot de passe">
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"> Se souvenir de moi
@@ -31,8 +31,6 @@
                 </div>
                 <div class="footer">                                                               
                     <button type="submit" class="btn bg-olive btn-block">s'identifier</button>  
-                    
-                    <p><a href="#">Mot de passe oublié</a></p>
                     
                     <a href="Register" class="text-center">Nouveau membre ? S'inscrire</a>
                 </div>
