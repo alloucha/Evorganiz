@@ -1,5 +1,5 @@
 <div class="col-md-auto">
-  <div class="box box-primary">
+  <div class="box box-success">
     <div class="box-header with-border">
       <i class="fa fa-cutlery"></i> <h3 class="box-title">Buffet</h3>
 
