@@ -46,6 +46,14 @@ class User_model extends CI_Model{
         return $result;
     }
 
+     public function update($data){
+
+        $this->db->where('idUser', $data['idUser'])
+                 ->update($this->table, $data);
+
+
+    }
+
 }
 
 ?>

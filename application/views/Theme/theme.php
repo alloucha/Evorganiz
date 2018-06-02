@@ -135,6 +135,7 @@
                                         $firstnameUser = $user->firstnameUser;
                                         $sexUser = $user->sexUser;
                                         $username = $user->username;
+                                        $idUser = $user->idUser;
 
                                         echo ($lastnameUser . ' ' . $firstnameUser); 
                                     }
@@ -170,19 +171,86 @@
                                
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
+                                     
+                                    
+                                    
+                                    <?php
+                                        echo '<div class="pull-left">
+
+                                        <a class="btn btn-default btn-flat dropdown-toggle" data-toggle="modal" href="#editUserModal_' . $idUser .'" role="button">Modifier</a>
+                                        </div>';
+
+                                        ?>
+                                    
+
+
+
+
+
+                                    
                                     <div class="pull-right">
                                         <a href="Login/logout" class="btn btn-default btn-flat">Se déconnecter</a>
                                     </div>
+
+
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </nav>
+
         </header>
+
+
+        <?php
+        $isMan ="";
+        $isWoman ="";
+        if ($sexUser=='Homme'){ $isMan = 'checked'; } 
+        if ($sexUser=='Femme'){ $isWoman = 'checked';}
+
+        $modalEditUser ='
+            <div class="modal fade" id="editUserModal_' . $idUser .'"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" >
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">Modifier mon profil</h5>
+                        </div>
+            
+                        <form method="POST" action="' . site_url("User/editUser") . '">
+                            
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label for="lastnameToEdit">NOM : </label>
+                                    <input type="text" value="' . $lastnameUser . '" class="form-control" name="lastnameToEdit" placeholder="Entrer le nom">
+
+                                     <label for="firstnameToEdit">Prénom : </label>
+                                    <input type="text" value="' . $firstnameUser . '" class="form-control" name="firstnameToEdit" placeholder="Entrer le prénom">
+                                </div>
+                                <div form-inline>
+                                    <label class="radio-inline"><input type="radio" name="sexToEdit" value="Homme" ' . $isMan . '> Homme</label>
+                                    <label class="radio-inline"><input type="radio" name="sexToEdit" value="Femme" ' . $isWoman . '> Femme</label>
+
+                                </div>
+
+                            </div>
+            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn btn-warning">Sauvegarder</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>';
+
+            echo $modalEditUser;
+        ?>
+
         <div class="wrapper row-offcanvas row-offcanvas-left">
             <!-- Left side column. contains the logo and sidebar -->
             <aside class="left-side sidebar-offcanvas">
