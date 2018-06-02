@@ -16,9 +16,26 @@ class Events extends CI_Controller {
 
 	public function ListEvents() {
 
-		$data['page'] = $this->tableEvents();
-		$data['title']= 'EVENEMENT';
-		$this->load->view("Theme/theme", $data);
+		if (!empty(get_cookie('idUserCookie'))){
+
+			$idUser = get_cookie('idUserCookie');
+			$idUser = $this->encryption->decrypt($idUser);
+			$userInfo = $this->User_model->getUserByIdUser($idUser);
+
+			if (!empty($userInfo)){
+
+				$data['userInfo'] = $userInfo;
+				$data['page'] = $this->tableEvents();
+				$data['title']= 'EVENEMENT';
+				$this->load->view("Theme/theme", $data);
+
+			} else {
+				redirect(site_url('/Register'));
+			}
+
+		} else {
+			redirect(site_url('/Login'));
+		}	
 	}
 
 	public function tableEvents() {
@@ -67,8 +84,14 @@ class Events extends CI_Controller {
 					'idUser'=> $idUser
 				);
 
-				$this->ListEvents->insert($data);
-				redirect(site_url('/Events'));
+				$this->form_validation->set_rules('idOccasionEvent', 'Occasion', 'required');
+
+				if ($this->form_validation->run('username') == TRUE){
+					
+					$this->ListEvents->insert($data);
+					redirect(site_url('/Events'));
+				}
+				
 			} else {
 
 				redirect(site_url('/Register'));
