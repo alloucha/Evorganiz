@@ -60,7 +60,6 @@ class EventDashboard extends CI_Controller {
 
 				} 
 
-				$data['todolist'] = $this->toDoList();		
 				return $this->load->view("Event/EventDashboard/EventPage", $data, true);
 
 				} else {
@@ -135,12 +134,4 @@ class EventDashboard extends CI_Controller {
             redirect(base_url('/Login'));
         }   
 	}
-
-
-	public function toDoList(){
-
-		$data['f']= 3;
-		return $this->load->view("Event/EventDashboard/ToDoList", $data, true);
-	}
-	
 }
