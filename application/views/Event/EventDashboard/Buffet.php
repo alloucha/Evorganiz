@@ -309,7 +309,7 @@
                          <?php
                         // Data recovery
                         $line = '';
-                        $numberMeal = 1;
+                        $numberMeal = 1;    
                         foreach ($buffet as $meal) {
                             
                             $typeMeal = $meal->typeMeal;
