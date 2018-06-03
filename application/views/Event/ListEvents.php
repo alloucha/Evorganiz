@@ -100,22 +100,6 @@
                 </div>
             </div><!-- /.box-header -->
 
-
-            <div class="box-body table-responsive">
-                <div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
-                    <div class="row"><div class="col-xs-6"><div id="example1_length" class="dataTables_length">
-                        <label>
-                        <select size="1" name="example1_length" aria-controls="example1">
-                            <option value="10" selected="selected">10</option><option value="25">25</option>
-                            <option value="50">50</option><option value="100">100</option>
-                        </select> records per page</label>
-
-
-                    </div>
-                </div>
-
-            </div>
-
             <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                 <thead><tr role="row">
 
@@ -308,9 +292,6 @@
             </table>
 
             <div class="row">
-                <div class="col-xs-6">
-                    <div class="dataTables_info" id="example1_info">Showing 1 to 10 of 57 entries</div>
-                </div>
 
                 <div class="col-xs-6">
                     <ul class="pagination pagination-sm margin pull-right">

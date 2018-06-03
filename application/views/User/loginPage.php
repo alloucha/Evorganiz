@@ -4,13 +4,13 @@
         <title>Connexion</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- bootstrap 3.0.2 -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url() ?>/AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!-- font Awesome -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url() ?>/AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Theme style -->
-        <link href="<?php echo base_url() ?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url() ?>/AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
 
-        <link rel="icon" href="<?php echo base_url() ?>AdminLTE/logo.png">
+        <link rel="icon" href="<?php echo base_url() ?>/AdminLTE/logo.png">
 
     </head>
     <body class="bg-black" style="">
@@ -36,9 +36,9 @@
 
 
         <!-- jQuery 2.0.2 -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="<?php echo base_url()?>/AdminLTE/js/jquery.min.js"></script>
         <!-- Bootstrap -->
-        <script src="<?php echo base_url() ?>AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>        
+        <script src="<?php echo base_url() ?>/AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>        
 
     
 </body></html>

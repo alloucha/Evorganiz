@@ -57,7 +57,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -111,7 +111,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -165,7 +165,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -219,7 +219,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -273,7 +273,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -326,7 +326,7 @@
                                 $line = '<tr>';
                                 
                                 //$line = $line . '<td><a  href="EventDashboard">' . $idEvent . '</td>';
-                                //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                                //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                         
                                 $line = $line  . '<td>' . $numberMeal . '. </td>';
                                 $line = $line . '<td>' . $nameMeal . '</td>';
@@ -362,7 +362,7 @@
                                                     <h5 class="modal-title" id="exampleModalLabel">Ajouter repas</h5>
                                                 </div>
                                     
-                                                <form method="POST" action="' . site_url("Buffet/addMealInBuffet?idEvent=" . $idEvent) . '">
+                                                <form method="POST" action="' . base_url("Buffet/addMealInBuffet?idEvent=" . $idEvent) . '">
                                                     <div class="modal-body">
 
                                                     <div class="form-group">

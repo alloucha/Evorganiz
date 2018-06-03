@@ -32,11 +32,11 @@ class EventDashboard extends CI_Controller {
 				$data['title']= 'EVENEMENT';
 				$this->load->view("Theme/theme", $data);
 			} else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 
@@ -64,11 +64,11 @@ class EventDashboard extends CI_Controller {
 				return $this->load->view("Event/EventDashboard/EventPage", $data, true);
 
 				} else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 
@@ -100,7 +100,7 @@ class EventDashboard extends CI_Controller {
 			}
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 
@@ -132,7 +132,7 @@ class EventDashboard extends CI_Controller {
 			}
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 

@@ -30,11 +30,11 @@ class Contact extends CI_Controller {
                 $this->load->view("Theme/theme", $data);
 
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 
     }
@@ -54,10 +54,10 @@ class Contact extends CI_Controller {
                 return $this->load->view("Contact/Contact_view", $data, true);
 
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 
@@ -83,12 +83,12 @@ class Contact extends CI_Controller {
                 );
 
                 $this->Contact_model->insert($data);
-                redirect(site_url('/Contact'));
+                redirect(base_url('/Contact'));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 
@@ -110,12 +110,12 @@ class Contact extends CI_Controller {
                     $this->Contact_model->delete($idContact);
                 } 
 
-                redirect(site_url('/Contact'));
+                redirect(base_url('/Contact'));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 
@@ -141,12 +141,12 @@ class Contact extends CI_Controller {
                 );
 
                 $this->Contact_model->update($data);
-                redirect(site_url('/Contact'));
+                redirect(base_url('/Contact'));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 }

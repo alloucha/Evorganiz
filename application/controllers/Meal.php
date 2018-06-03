@@ -32,11 +32,11 @@ class Meal extends CI_Controller {
 				$data['title']= 'REPAS';
 				$this->load->view("Theme/theme", $data);
 			} else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 
@@ -64,11 +64,11 @@ class Meal extends CI_Controller {
 				return $this->load->view("Meal/Meal_view", $data, true);
 
 			} else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
 	}
 
@@ -93,13 +93,13 @@ class Meal extends CI_Controller {
                 );
 
                 $this->Meal_model->insert($data);
-                redirect(site_url('/Meal'));
+                redirect(base_url('/Meal'));
 
 	        } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }   
         
     }  
@@ -124,11 +124,11 @@ class Meal extends CI_Controller {
 
         		$this->Meal_model->insert($data);
         	} else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
 
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }  
     }
 
@@ -150,12 +150,12 @@ class Meal extends CI_Controller {
                     $this->Meal_model->delete($idMeal);
                 } 
 
-                redirect(site_url('/Meal'));
+                redirect(base_url('/Meal'));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 
@@ -177,12 +177,12 @@ class Meal extends CI_Controller {
                 );
 
                 $this->Meal_model->update($data);
-                redirect(site_url('/Meal');
+                redirect(base_url('/Meal'));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 }

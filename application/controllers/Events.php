@@ -31,11 +31,11 @@ class Events extends CI_Controller {
 				$this->load->view("Theme/theme", $data);
 
 			} else {
-				redirect(site_url('/Register'));
+				redirect(base_url('/Register'));
 			}
 
 		} else {
-			redirect(site_url('/Login'));
+			redirect(base_url('/Login'));
 		}	
 	}
 
@@ -57,11 +57,11 @@ class Events extends CI_Controller {
 				return $this->load->view("Event/ListEvents", $data, true);
 			
 			} else {
-				redirect(site_url('/Register'));
+				redirect(base_url('/Register'));
 			}
 
 		} else {
-			redirect(site_url('/Login'));
+			redirect(base_url('/Login'));
 		}	
 	}
 
@@ -91,16 +91,16 @@ class Events extends CI_Controller {
 				if ($this->form_validation->run() == TRUE){
 					
 					$this->ListEvents->insert($data);
-					redirect(site_url('/Events'));
+					redirect(base_url('/Events'));
 				}
 
 			} else {
 
-				redirect(site_url('/Register'));
+				redirect(base_url('/Register'));
 			}
 
 		} else {
-			redirect(site_url('/Login'));
+			redirect(base_url('/Login'));
 		}
 	}
 
@@ -121,12 +121,12 @@ class Events extends CI_Controller {
 					$this->ListEvents->delete($idEvent);
 				} 
 
-				redirect(site_url('/Events'));
+				redirect(base_url('/Events'));
 			} else {
-				redirect(site_url('/Register'));
+				redirect(base_url('/Register'));
 			}
 		} else {
-			redirect(site_url('/Login'));
+			redirect(base_url('/Login'));
 		}
 	}
 
@@ -151,13 +151,13 @@ class Events extends CI_Controller {
 				);
 
 				$this->ListEvents->update($data);
-				redirect(site_url('/Events'));
+				redirect(base_url('/Events'));
 			} else {
 
-				redirect(site_url('/Register'));
+				redirect(base_url('/Register'));
 			}
 		} else {
-			redirect(site_url('/Login'));
+			redirect(base_url('/Login'));
 		}			
 	}
 }

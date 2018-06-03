@@ -47,7 +47,7 @@ class Register extends CI_Controller {
                 
             } elseif ($this->form_validation->run() == FALSE) {
 
-                redirect(site_url('Register'));
+                redirect(base_url('Register'));
 
             } else {
                 define("PREFIX", "bjgbsemiogyibl-zohys-ùà");
@@ -56,7 +56,7 @@ class Register extends CI_Controller {
                 
                 $this->User_model->insert($data);
 
-                redirect(site_url('Login'));
+                redirect(base_url('Login'));
             }
         }
     }

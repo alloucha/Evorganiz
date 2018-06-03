@@ -14,7 +14,7 @@
     <!-- /.box-header -->
     <div class="box-body" style="display: none;">
 
-        <form role="form" method="POST" action = <?php echo site_url('Meal/addMeal')?> >
+        <form role="form" method="POST" action = <?php echo base_url('Meal/addMeal')?> >
             
             <?php 
 
@@ -127,11 +127,11 @@
                             
                             // for each loop iteration, a line contains all informations about one event
                             $line = '<tr>';
-                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
+                            //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '" >' . $nomEditeur . '</a></td>';
                             
                             //$line = $line . '<td><a  href="contact">' . $nomContact . '</a></td>';
                             $line = $line . '<td>' . $nameMeal . '</td>';
-                            //$line = $line . '<td><a  href="' . site_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
+                            //$line = $line . '<td><a  href="' . base_url('ficheEditeur?idFicheEditeur='. $idEditeur ) . '">' . $idEvent . '</td>';
                     
                             $line = $line . '<td>' . $typeMeal . '</td>';
                             $line = $line . '<td>' . $descriptionMeal . '</td>';
@@ -161,7 +161,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Modifier repas</h5>
                                         </div>
                             
-                                        <form method="POST" action="' . site_url("Meal/editMeal?idMealToEdit=" . $idMeal . '&typeMealToEdit=' . $typeMeal) . '">
+                                        <form method="POST" action="' . base_url("Meal/editMeal?idMealToEdit=" . $idMeal . '&typeMealToEdit=' . $typeMeal) . '">
                                             
                                             <div class="modal-body">
 
@@ -198,7 +198,7 @@
                                        
                                           </div>
                                           
-                                          <form method="POST" action="' . site_url("Meal/deleteMeal") . '">
+                                          <form method="POST" action="' . base_url("Meal/deleteMeal") . '">
                                               <div class="modal-body">
                                                     <p>Etes-vous sûr de vouloir supprimer ce repas ?</p>
                                                     <input type="hidden" name="idMealToDelete" value="'. $idMeal .'">

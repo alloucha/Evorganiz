@@ -36,13 +36,13 @@ class Buffet extends CI_Controller {
                          $this->Buffet_model->insert($data);
                 }
                 
-                redirect(site_url('/EventDashboard?idEvent=' . $data['idEvent']));
+                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));
 
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 
@@ -67,12 +67,12 @@ class Buffet extends CI_Controller {
                     $this->Buffet_model->delete($data);
                 }                 
 
-                redirect(site_url('/EventDashboard?idEvent=' . $data['idEvent']));
+                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));
             } else {
-                redirect(site_url('/Register'));
+                redirect(base_url('/Register'));
             }
         } else {
-            redirect(site_url('/Login'));
+            redirect(base_url('/Login'));
         }
     }
 }

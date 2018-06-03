@@ -29,7 +29,7 @@ class Login extends CI_Controller {
 
 		if (empty($UserInfo)){
 			
-			redirect(site_url('Login'));
+			redirect(base_url('Login'));
 		
 		} else {
 
@@ -40,7 +40,7 @@ class Login extends CI_Controller {
 			$idUser = $this->encryption->encrypt($idUser);
 
 			set_cookie('idUserCookie', $idUser, '3660');
-			redirect(site_url('Events'));
+			redirect(base_url('Events'));
 		}		
 	}
 
@@ -49,7 +49,7 @@ class Login extends CI_Controller {
 
 		delete_cookie('idUserCookie');
 
-		redirect(site_url('Login'));
+		redirect(base_url('Login'));
 	}
 }
 

@@ -12,7 +12,7 @@
     <!-- /.box-header -->
     <div class="box-body" style="display: none;">
 
-        <form role="form" method="POST" action = <?php echo site_url('Contact/addContact')?> >
+        <form role="form" method="POST" action = <?php echo base_url('Contact/addContact')?> >
             <!-- text input -->
             <div class="form-group">
                 <label>Nom : </label>
@@ -146,7 +146,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Modifier contact</h5>
                                         </div>
                             
-                                        <form method="POST" action="' . site_url("Contact/editContact?idContactToEdit=" . $idContact) . '">
+                                        <form method="POST" action="' . base_url("Contact/editContact?idContactToEdit=" . $idContact) . '">
                                             
                                             <div class="modal-body">
 
@@ -197,7 +197,7 @@
                                        
                                           </div>
                                           
-                                          <form method="POST" action="' . site_url("Contact/deleteContact") . '">
+                                          <form method="POST" action="' . base_url("Contact/deleteContact") . '">
                                               <div class="modal-body">
                                                     <p>Etes-vous sûr de vouloir supprimer ce contact ?</p>
                                                     <input type="hidden" name="idContactToDelete" value="'. $idContact .'">
