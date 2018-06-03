@@ -342,8 +342,6 @@
                                 $numberMeal++;
                                 echo  $line;
                             }    
-
-                            var_dump('id event buffet : ' . $idEvent);
                         }
 
 

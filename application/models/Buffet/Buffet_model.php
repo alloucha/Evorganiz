@@ -28,7 +28,7 @@ class Buffet_model extends CI_Model{
         
         $this->db->set('idMeal', $data['idMeal'])
                  ->set('idEvent', $data['idEvent'])
-                 ->set('pricePerPerson', $data['pricePerPerson'])
+                 ->set('pricePerPersonn', $data['pricePerPerson'])
                 ->insert($this->table);
     }
 
