@@ -20,7 +20,7 @@
             <form action="<?php echo base_url('Login/login')?>" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
-                        <input type="text" name="username" test class="form-control" placeholder="identifiant" <?php if (isset($usernameAlredeadyUsed)){ echo 'value="' . $usernameAlreadyUsed . '"' ; } ?>>
+                        <input type="text" name="username" test class="form-control" placeholder="identifiant" <?php 'value="' . $usernameAlreadyUsed . '"'?>>
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="mot de passe">
