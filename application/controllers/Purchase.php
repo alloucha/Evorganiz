@@ -11,3 +11,4 @@ class Purchase extends CI_Controller {
 	public function index() {
 		$this->load->view("Purchase/Purchase_view");
 	}
+}
