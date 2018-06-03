@@ -22,15 +22,16 @@ class Contact_model extends CI_Model{
     }
 
 
-    public function getNameEventById($id) {
-        
-       $result = $this->db->select('nameEvent')
+    public function getAllContactsNotInvited($guests, $idUser) {
+
+       $result = $this->db->select()
                        ->from($this->table)
-                       ->where('idEvent', $id)
+                       ->where('idUser', $idUser)
+                       ->where_not_in('idContact', $guests)
                        ->get()
                        ->result();
 
-        return $result;
+       return $result;
     }
 
 
@@ -38,7 +39,7 @@ class Contact_model extends CI_Model{
         
         $this->db->set('lastnameContact', $data['lastnameContact'])
                  ->set('firstnameContact', $data['firstnameContact'])
-                 ->set('telContact', $data['telephoneContact'])
+                 ->set('telContact', $data['telContact'])
                  ->set('streetContact', $data['streetContact'])
                  ->set('zipCodeContact', $data['zipCodeContact'])
                  ->set('townContact', $data['townContact'])

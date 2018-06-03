@@ -16,9 +16,27 @@ class Contact extends CI_Controller {
 
     public function ListContacts() {
 
-        $data['page'] = $this->tableContacts();
-        $data['title']= 'CONTACT';
-        $this->load->view("Theme/theme", $data);
+        if (!empty(get_cookie('idUserCookie'))){
+
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $data['userInfo'] = $userInfo;
+                $data['page'] = $this->tableContacts();
+                $data['title']= 'CONTACT';
+                $this->load->view("Theme/theme", $data);
+
+            } else {
+                redirect(site_url('/Register'));
+            }
+
+        } else {
+            redirect(site_url('/Login'));
+        }   
+
     }
 
 

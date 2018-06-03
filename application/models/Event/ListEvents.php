@@ -12,17 +12,6 @@ class ListEvents extends CI_Model{
        parent::__construct();
     } 
 
-    
-    public function getEvents() {
-        
-       $result = $this->db->select()
-                       ->from($this->table)
-                       ->get()
-                       ->result();
-
-       return $result;
-    }
-
 
     public function getAllEvents($idUser){
 

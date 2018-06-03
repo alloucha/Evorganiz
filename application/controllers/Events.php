@@ -14,6 +14,7 @@ class Events extends CI_Controller {
 		$this->ListEvents();
 	}
 
+
 	public function ListEvents() {
 
 		if (!empty(get_cookie('idUserCookie'))){
@@ -37,6 +38,7 @@ class Events extends CI_Controller {
 			redirect(site_url('/Login'));
 		}	
 	}
+
 
 	public function tableEvents() {
 
@@ -77,7 +79,7 @@ class Events extends CI_Controller {
 				$data = array(
 					'themeEvent'=> htmlspecialchars($_POST['themeEvent']),
 					'dateEvent'=> htmlspecialchars($_POST['dateEvent']),
-					'idOccasionEvent'=> htmlspecialchars($_POST['idOccasion']),
+					'idOccasionEvent'=> htmlspecialchars($_POST['idOccasionEvent']),
 					'budgetMaxEvent'=> htmlspecialchars($_POST['budgetMaxEvent']),
 					'venueEvent'=> htmlspecialchars($_POST['venueEvent']),
 					'personConcerned'=> htmlspecialchars($_POST['personConcerned']),
@@ -86,12 +88,12 @@ class Events extends CI_Controller {
 
 				$this->form_validation->set_rules('idOccasionEvent', 'Occasion', 'required');
 
-				if ($this->form_validation->run('username') == TRUE){
+				if ($this->form_validation->run() == TRUE){
 					
 					$this->ListEvents->insert($data);
 					redirect(site_url('/Events'));
 				}
-				
+
 			} else {
 
 				redirect(site_url('/Register'));

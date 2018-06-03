@@ -6,15 +6,15 @@
         <title>AdminLTE | Data Tables</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- bootstrap 3.0.2 -->
-        <link href="../AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!-- font Awesome -->
-        <link href="../AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Ionicons -->
-        <link href="../AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <!-- DATA TABLES -->
-        <link href="../AdminLTE/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
         <!-- Theme style -->
-        <link href="../AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
 
     <style></style></head>
 <body>
@@ -44,8 +44,8 @@
             </div>
 
             <div class="form-group">
-                <select class="form-control" name="idOccasion" title="Occasion">
-                    <option selected>Occasion</option>
+                <select required class="form-control" name="idOccasionEvent" title="Occasion">
+                    <option value="">Occasion</option>
                     <option value="1">Anniversaire</option>
                     <option value="2">Fiançaille</option>
                     <option value="3">Mariage</option>
@@ -128,8 +128,6 @@
             <table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
                 <thead><tr role="row">
 
-                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">n°</th>
-
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" >Date</th>
 
                     <th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Occasion</th>
@@ -160,7 +158,6 @@
                             
                             // for each loop iteration, a line contains all informations about one event
                             $line = '<tr>';
-                            $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $idEvent . '</a></td>';                  
                             $line = $line . '<td>' . $dateEvent       . '</td>';
 
                             if ($idOccasionEvent==0){
@@ -172,7 +169,7 @@
 
                                     if ($idOccasionEvent==$idOccasion) {
                                         $nameOccasion = $occasion->nameOccasion;
-                                        $line = $line . '<td>' . $nameOccasion . '</td>';
+                                        $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $nameOccasion . '</td>';
                                     }
                                 }
                             }
@@ -340,13 +337,6 @@
 </tr></thead></table></div></div></div></div></div>
 
 
-<script src="../AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
 
-<script src="../AdminLTE/js/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
 
-<script src="../AdminLTE/js/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-
-<script src="../AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
-
-</script>
 </body></html>

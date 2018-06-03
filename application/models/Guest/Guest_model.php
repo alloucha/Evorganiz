@@ -4,22 +4,32 @@ class Guest_model extends CI_Model{
 
 
     protected $table ='Guest';
+    protected $table2 ='Contact';
 
     public function __construct() {
        parent::__construct();
     } 
 
 
+    public function getGuestByIdEvent($idEvent){
+
+        $result = $this->db->select()
+                         ->from('Guest g')
+                         ->join('Contact c', 'g.idContact = c.idContact')
+                         ->where('idEvent', $idEvent)
+                         ->get()
+                         ->result();
+
+        return $result;
+    }
+
+
      public function insert($data){
         
-        $this->db->set('lastnameContact', $data['lastnameContact'])
-                 ->set('firstnameContact', $data['firstnameContact'])
-                 ->set('telContact', $data['telContact'])
-                 ->set('streetContact', $data['streetContact'])
-                 ->set('zipCodeContact', $data['zipCodeContact'])
-                 ->set('townContact', $data['townContact'])
-                 ->set('idUser', $data['idUser'])
-                 ->insert($this->table);
+        $this->db->set('idContact', $data['idContact'])
+                 ->set('idEvent', $data['idEvent'])
+                 ->set('acceptInvitation', $data['acceptInvitation'])
+                ->insert($this->table);
     }
 
 
@@ -30,9 +40,10 @@ class Guest_model extends CI_Model{
     }
 
 
-    public function delete($idGuest){
+    public function delete($data){
         
-        $this->db->where('idContact', $idGuest)
+        $this->db->where('idContact', $data['idGuest'])
+                  ->where('idEvent', $data['idEvent'])
                   ->delete($this->table);
     }
 

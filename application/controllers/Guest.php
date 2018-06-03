@@ -7,6 +7,7 @@ class Guest extends CI_Controller {
     {
       parent::__construct();
       $this->load->model('Guest/Guest_model');
+      $this->load->model('Contact/Contact_model');
       $this->load->model('User/User_model');
     }
 
@@ -14,7 +15,7 @@ class Guest extends CI_Controller {
 
     }
 
-    public function addContact() {  
+    public function addGuest() {  
 
         if (!empty(get_cookie('idUserCookie'))){
 
@@ -24,18 +25,19 @@ class Guest extends CI_Controller {
 
             if (!empty($userInfo)){
 
-                $data = array(
-                    'lastnameContact'=> htmlspecialchars($_POST['lastnameContact']),
-                    'firstnameContact'=> htmlspecialchars($_POST['firstnameContact']),
-                    'telContact'=> htmlspecialchars($_POST['telephoneContact']),
-                    'streetContact'=> htmlspecialchars($_POST['streetContact']),
-                    'zipCodeContact'=> htmlspecialchars($_POST['zipCodeContact']),
-                    'townContact'=> htmlspecialchars($_POST['townContact']),
-                    'idUser'=> $idUser
-                );
+                if (!empty(htmlspecialchars($_POST['newGuest']))){
 
-                $this->Contact_model->insert($data);
-                redirect(site_url('/Contact'));
+                        $data = array(
+                            'idContact'=> htmlspecialchars($_POST['newGuest']),
+                            'idEvent'=> $_GET['idEvent'],
+                            'acceptInvitation'=> 'Non'
+                        );
+
+                         $this->Guest_model->insert($data);
+                }
+                
+                redirect(site_url('/EventDashboard?idEvent=' . $data['idEvent']));
+
             } else {
                 redirect(site_url('/Register'));
             }
@@ -55,20 +57,17 @@ class Guest extends CI_Controller {
 
             if (!empty($userInfo)){
 
-                $idGuest = $_POST['idGuestToDelete'];
+                $data = array(
+                    'idGuest'=> htmlspecialchars($_POST['idGuestToDelete']),
+                    'idEvent'=> $_GET['idEvent']
+                );
 
-                if (isset($idGuest)){
+                if (isset($data['idGuest'])){
 
-                    $idEvent = $this->Guest_model->getIdEventByIdGuest($idGuest);                
-
-                    foreach ($idEvent as $event) {
-                        $id = $event->idEvent;
-                    }
-
-                    $this->Guest_model->delete($idGuest);
+                    $this->Guest_model->delete($data);
                 }                 
 
-                redirect(site_url('/EventDashboard?idEvent=' . $id));
+                redirect(site_url('/EventDashboard?idEvent=' . $data['idEvent']));
             } else {
                 redirect(site_url('/Register'));
             }
