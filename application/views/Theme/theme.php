@@ -5,23 +5,23 @@
         <title><?php echo $title?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>/AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <!-- font Awesome -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>/AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <!-- Ionicons -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo site_url()?>/AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <!-- Morris chart -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/morris/morris.css" rel="stylesheet" type="text/css" />
         <!-- jvectormap -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
         <!-- fullCalendar -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
         <!-- Daterange picker -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <!-- bootstrap wysihtml5 - text editor -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
-        <link href="<?php echo site_url()?>../AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo site_url()?>/AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
         <link rel="icon" href="<?php echo site_url()?>/AdminLTE/logo.png">
 
@@ -75,11 +75,11 @@
                                     <?php
 
                                         if ($sexUser=='NotDefined') {
-                                            echo '<img src="'. site_url() . '../AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
+                                            echo '<img src="'. site_url() . '/AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
                                         } elseif ($sexUser=='Homme') {
-                                            echo '<img src="'. site_url() . '../AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
+                                            echo '<img src="'. site_url() . '/AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
                                         } else {
-                                            echo '<img src="'. site_url() . '../AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
+                                            echo '<img src="'. site_url() . '/AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
                                         }
 
                                     ?>
@@ -187,11 +187,11 @@
                             <?php
 
                                 if ($sexUser=='NotDefined') {
-                                    echo '<img src="'. site_url() . '../AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
+                                    echo '<img src="'. site_url() . '/AdminLTE/img/user-bg.png" class="img-circle" alt="User Image" />';
                                 } elseif ($sexUser=='Homme') {
-                                    echo '<img src="'. site_url() . '../AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
+                                    echo '<img src="'. site_url() . '/AdminLTE/img/avatar5.png" class="img-circle" alt="User Image" />';
                                 } else {
-                                    echo '<img src="'. site_url() . '../AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
+                                    echo '<img src="'. site_url() . '/AdminLTE/img/avatar2.png" class="img-circle" alt="User Image" />';
                                 }
 
                             ?>
@@ -283,20 +283,20 @@
         </div><!-- ./wrapper -->
 
           <!-- jQuery 2.0.2 -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/jquery.min.js"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/jquery.min.js"></script>
 
         <!-- Bootstrap -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="<?php echo site_url()?>../AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
         
         <!-- daterangepicker -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
         <!-- Bootstrap WYSIHTML5 -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <!-- iCheck -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
 
         <!-- AdminLTE App -->
-        <script src="<?php echo site_url()?>../AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
+        <script src="<?php echo site_url()?>/AdminLTE/js/AdminLTE/app.js" type="text/javascript"></script>
     </body>
 </html>
