@@ -135,19 +135,18 @@
                             $line = '<tr>';
                             $line = $line . '<td>' . $dateEvent       . '</td>';
 
-                            if ($idOccasionEvent==0){
-                                $line = $line . '<td></td>';
-                            } else {
-                                foreach ($ListOccasions as $occasion){
+                            var_dump($idOccasion);
+                            
+                            foreach ($ListOccasions as $occasion){
 
-                                    $idOccasion = $occasion->idOccasion;
+                                $idOccasion = $occasion->idOccasion;
 
-                                    if ($idOccasionEvent==$idOccasion) {
-                                        $nameOccasion = $occasion->nameOccasion;
-                                        $line = $line . '<td><a  href="' . base_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $nameOccasion . '</td>';
-                                    }
+                                if ($idOccasionEvent==$idOccasion) {
+                                    $nameOccasion = $occasion->nameOccasion;
+                                    $line = $line . '<td><a  href="' . base_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $nameOccasion . '</td>';
                                 }
                             }
+                            
 
                             $line = $line . '<td>' . $personConcerned . '</td>';
                             $line = $line . '<td>' . $themeEvent      . '</td>';
