@@ -4,6 +4,7 @@
       <i class="fa fa-cutlery"></i> <h3 class="box-title">Buffet</h3>
 
       <div class="box-tools pull-right">
+        <a class="btn" data-toggle="modal" data-target="#addMealModal" role="button"><i class="fa fa-plus"></i> Ajouter</a>
         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
         </button>
       </div>
@@ -342,6 +343,48 @@
                                 echo  $line;
                             }    
                         }
+
+
+                        $list='';
+
+                        foreach($listMealNotInBuffet as $meal) {
+
+                            $list = $list . ' <option value="'. $meal->idMeal .'">' . $meal->typeMeal . ' ' . $meal->nameMeal .'</option>';
+                        }
+
+                        $modalAddMeal = '<div class="modal fade" id="addMealModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter repas</h5>
+                                                </div>
+                                    
+                                                <form method="POST" action="' . site_url("Buffet/addMealInBuffet?idEvent=" . $idEvent) . '">
+                                                    <div class="modal-body">
+
+                                                    <div class="form-group">
+                                                        <select required class="form-control" name="newMeal">
+                                                        
+                                                        '. $list . 
+                                                        '</select>
+                                                    </div>
+
+                                                    </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                            <button type="submit" class="btn btn-success">Sauvegarder</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>';
+
+                        echo $modalAddMeal;
+
+
                         ?>
                     </tbody></table>
                 </div>     
