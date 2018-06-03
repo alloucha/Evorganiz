@@ -35,11 +35,11 @@
 
                     <div class="form-group">
                         <input type="password" data-minlength="6" name="password" id="inputPassword" class="form-control" placeholder="mot de passe*" required>
-                        <div class="help-block with-errors"></div>                        
+                        <div class="help-block with-errors"></div>
+                        <div class="help-block">Minimum 6 caractères</div>                        
                     </div>
                     <div class="form-group">
                         <input type="password" data-minlength="6" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Ouuups, les mots de passe ne correspondent pas !" placeholder="confirmer mot de passe*" required>
-                        <div class="help-block">Minimum 6 caractères</div>
                         <div class="help-block with-errors"></div>
                     </div>
 

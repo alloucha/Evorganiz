@@ -6,7 +6,8 @@ class Meal extends CI_Controller {
 	public function __construct()
 	{
 	  parent::__construct();
-	  $this->load->model('Meal/meal_model');
+	  $this->load->model('Meal/Meal_model');
+	  $this->load->model('User/User_model');
 	}
 
 
@@ -17,79 +18,172 @@ class Meal extends CI_Controller {
 
 	public function ListMeals() {
 
-		$data['page'] = $this->tabMeal();
+		if (!empty(get_cookie('idUserCookie'))){
 
-		$data['title']= 'REPAS';
-		$this->load->view("Theme/theme", $data);
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $data['userInfo'] = $userInfo;
+				$data['page'] = $this->tabMeal();
+
+				$data['title']= 'REPAS';
+				$this->load->view("Theme/theme", $data);
+			} else {
+                redirect(site_url('/Register'));
+            }
+
+        } else {
+            redirect(site_url('/Login'));
+        }   
 	}
 
 
 	public function tabMeal() {
 
-		if (isset($_GET['typeMeal'])){
+		if (!empty(get_cookie('idUserCookie'))){
 
-			$data['ListMeals'] = $this->meal_model->getAllMealByType($_GET['typeMeal']);
-			$data['typeMeal'] = $_GET['typeMeal'];
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
 
-		} else {
+            if (!empty($userInfo)){
 
-			$data['ListMeals']= $this->meal_model->getAll();
-			$data['typeMeal'] = 'All';
+            	if (isset($_GET['typeMeal'])){
 
-		}
+				$data['ListMeals'] = $this->Meal_model->getAllMealByType($_GET['typeMeal'], $idUser);
+				$data['typeMeal'] = $_GET['typeMeal'];
 
-		return $this->load->view("Meal/Meal_view", $data, true);
+				} else {
+
+					$data['ListMeals']= $this->Meal_model->getAllMeals($idUser);
+					$data['typeMeal'] = 'All';
+				}
+				return $this->load->view("Meal/Meal_view", $data, true);
+
+			} else {
+                redirect(site_url('/Register'));
+            }
+
+        } else {
+            redirect(site_url('/Login'));
+        }   
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public function addMeal (){
+	public function addMeal(){
        
-        if( get_cookie('username')==''){
-          
-             $this->load->view('Login/login');
-    	}
+       if (!empty(get_cookie('idUserCookie'))){
 
-    	else {
-            $this->load->view('Meal/addMeal');
-    	}
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+            	var_dump($_POST);
+
+            	$data = array(
+                    'nameMeal'=> htmlspecialchars($_POST['nameMeal']),
+                    'typeMeal'=> htmlspecialchars($_POST['typeMeal']),
+                    'descriptionMeal'=> htmlspecialchars($_POST['descriptionMeal']),
+                    'idUser'=> $idUser
+                );
+
+                $this->Meal_model->insert($data);
+                redirect(site_url('/Meal'));
+
+	        } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }   
+        
     }  
 
 
     public function insert(){
-        
-        $data= array(
-            "nameMeal"=> htmlspecialchars($_POST['nameMeal']),
-            "typeMeal"=> htmlspecialchars($_POST['typeMeal']),
-            "descriptionMeal"=> htmlspecialchars($_POST['descriptionMeal']),
-        );
 
-        $this->Meal_model->insert($data);
+    	if (!empty(get_cookie('idUserCookie'))){
 
-        if( get_cookie('nom_utilisateur')==''){
-          
-             $this->load->view('Login/login');
-           
-	    }
-	    else {
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
 
-	    	redirect(site_url('Meal'));
+            if (!empty($userInfo)){
 
-	    }
+                $data= array(
+		            "nameMeal"=> htmlspecialchars($_POST['nameMeal']),
+		            "typeMeal"=> htmlspecialchars($_POST['typeMeal']),
+		            "descriptionMeal"=> htmlspecialchars($_POST['descriptionMeal']),
+		            "idUser"=> $idUser
+		        );
+
+        		$this->Meal_model->insert($data);
+        	} else {
+                redirect(site_url('/Register'));
+            }
+
+        } else {
+            redirect(site_url('/Login'));
+        }  
+    }
+
+
+     public function deleteMeal() {
+
+        if (!empty(get_cookie('idUserCookie'))){
+
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $idMeal = $_POST['idMealToDelete'];
+
+                if (isset($idMeal)){
+
+                    $this->Meal_model->delete($idMeal);
+                } 
+
+                redirect(site_url('/Meal'));
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
+    }
+
+
+    public function editMeal() {
+
+        if (!empty(get_cookie('idUserCookie'))){
+
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $data = array(
+                    'idMeal'=> htmlspecialchars($_GET['idMealToEdit']),
+                    'nameMeal'=> htmlspecialchars($_POST['nameMealToEdit']),
+                    'descriptionMeal'=> htmlspecialchars($_POST['descriptionMealToEdit'])
+                );
+
+                $this->Meal_model->update($data);
+                redirect(site_url('/Meal');
+            } else {
+                redirect(site_url('/Register'));
+            }
+        } else {
+            redirect(site_url('/Login'));
+        }
     }
 }
 ?>

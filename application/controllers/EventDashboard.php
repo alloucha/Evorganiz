@@ -6,6 +6,7 @@ class EventDashboard extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Event/ListEvents');
+		$this->load->model('Buffet/Buffet_model');
 		$this->load->model('Guest/Guest_model');
 		$this->load->model('Contact/Contact_model');
 		$this->load->model('Meal/Meal_model');
@@ -82,7 +83,19 @@ class EventDashboard extends CI_Controller {
 
             if (!empty($userInfo)){
 
-				$data['buffet'] = $this->Meal_model->getMealByIdEvent($idEvent);
+            	$data['idEvent'] = $idEvent;
+            	$data['buffet'] = $this->Meal_model->getMealByIdEvent($idEvent);
+
+            	$listbuffets = $this->Buffet_model->getBuffetByIdEvent($idEvent);
+            	foreach ($listbuffets as $meal){ 
+    				$array[] = $meal->idMeal;
+    			}
+            	
+            	if (isset($array)){
+            		$data['listMealNotInBuffet'] = $this->Meal_model->getAllMealNotInBuffet($array, $idUser);
+				} else {
+					$data['listMealNotInBuffet'] = $this->Meal_model->getAllMeals($idUser);
+				}
 				return $this->load->view("Event/EventDashboard/Buffet", $data, true);
 			}
 
@@ -105,12 +118,15 @@ class EventDashboard extends CI_Controller {
             	$data['guests'] = $this->Guest_model->getGuestByIdEvent($idEvent);
 
             	$guests = $this->Guest_model->getGuestByIdEvent($idEvent);
-            	//$data['listContact'] = $this->Contact_model->getAllContacts($idUser);
             	foreach ($guests as $guest){ 
     				$array[] = $guest->idContact;
     			}
             	
-            	$data['listContact'] = $this->Contact_model->getAllContactsNotInvited($array, $idUser);
+            	if(isset($array)){
+            		$data['listContactNotInvited'] = $this->Contact_model->getAllContactsNotInvited($array, $idUser);
+            	} else {
+            		$data['listContactNotInvited'] = $this->Contact_model->getAllContacts($idUser);
+            	}
 
 				return $this->load->view("Event/EventDashboard/Guest", $data, true);
 			}
