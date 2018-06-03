@@ -27,13 +27,13 @@ class Guest extends CI_Controller {
             if (!empty($userInfo)){
 
                 $data = array(
-                    'idGuest'=> htmlspecialchars($_GET['idGuest']),
-                    'idEvent'=> htmlspecialchars($GET['idEvent']),
+                    'idContact'=> htmlspecialchars($_GET['idGuest']),
+                    'idEvent'=> htmlspecialchars($_GET['idEvent']),
                     'acceptInvitation'=> htmlspecialchars($_POST['acceptToEdit'])
                 );
 
-                $this->Meal_model->update($data);
-                redirect(base_url('/Meal'));
+                $this->Guest_model->update($data);
+                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent'])));
             } else {
                 redirect(base_url('/Register'));
             }
