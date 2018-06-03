@@ -9,6 +9,47 @@
       </div>
 
       
+      <?php
+
+      $list='';
+
+        foreach($listContactNotInvited as $contact) {
+
+            $list = $list . ' <option value="'. $contact->idContact .'">' . $contact->lastnameContact . ' ' . $contact->firstnameContact .'</option>';
+        }
+
+        $modalAddGuest = '<div class="modal fade" id="addGuestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter invité</h5>
+                                </div>
+                    
+                                <form method="POST" action="' . site_url("Guest/addGuest?idEvent=" . $idEvent) . '">
+                                    <div class="modal-body">
+
+                                    <div class="form-group">
+                                        <select required class="form-control" name="newuest">
+                                        
+                                        '. $list . 
+                                        '</select>
+                                    </div>
+
+                                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn btn-warning">Sauvegarder</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>';
+
+        echo $modalAddGuest;
+      ?>
       <!-- /.box-tools -->
     </div>
     <!-- /.box-header -->
@@ -92,46 +133,6 @@
                                     </div>';
            
                         echo ($modalDeleteGuest);    
-
-                        $list='';
-
-                        foreach($listContactNotInvited as $contact) {
-
-                            $list = $list . ' <option value="'. $contact->idContact .'">' . $contact->lastnameContact . ' ' . $contact->firstnameContact .'</option>';
-                        }
-
-                        $modalAddGuest = '<div class="modal fade" id="addGuestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h5 class="modal-title" id="exampleModalLabel">Ajouter invité</h5>
-                                                </div>
-                                    
-                                                <form method="POST" action="' . site_url("Guest/addGuest?idEvent=" . $idEvent) . '">
-                                                    <div class="modal-body">
-
-                                                    <div class="form-group">
-                                                        <select required class="form-control" name="newuest">
-                                                        
-                                                        '. $list . 
-                                                        '</select>
-                                                    </div>
-
-                                                    </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                            <button type="submit" class="btn btn-warning">Sauvegarder</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>';
-
-                        echo $modalAddGuest;
-
                     }
                     ?>
                 </tbody></table>
