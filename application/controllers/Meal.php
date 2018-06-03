@@ -93,7 +93,7 @@ class Meal extends CI_Controller {
                 );
 
                 $this->Meal_model->insert($data);
-                redirect(base_url('/Meal'));
+                redirect(base_url('/Meal?typeMeal=' . $data['typeMeal']));
 
 	        } else {
                 redirect(base_url('/Register'));
