@@ -33,7 +33,11 @@ class Buffet extends CI_Controller {
                             'pricePerPerson'=> 0
                         );
 
-                         $this->Buffet_model->insert($data);
+                        if($data['pricePerPerson']<0){
+                            $data['pricePerPerson']=0;
+                        }
+                        
+                        $this->Buffet_model->insert($data);
                 }
             
                 redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));

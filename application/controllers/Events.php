@@ -90,6 +90,10 @@ class Events extends CI_Controller {
 
 				if ($this->form_validation->run() == TRUE){
 					
+					if($data['budgetMaxEvent']<0){
+						$data['budgetMaxEvent']=0;
+					}
+					
 					$this->ListEvents->insert($data);
 					redirect(base_url('/Events'));
 				}
