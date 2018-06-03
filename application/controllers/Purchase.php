@@ -14,7 +14,7 @@ class Purchase extends CI_Controller {
 
 		$idUser = get_cookie('idUserCookie');
 		$idUser = $this->encryption->decrypt($idUser);
-		$userInfo = $this->User_model->getUserByIdUser
+		$userInfo = $this->User_model->getUserByIdUser;
 		$data['userInfo'] = $userInfo;
 		$data['title']= 'ACHAT';
 		$this->load->view("Theme/theme", $data);
