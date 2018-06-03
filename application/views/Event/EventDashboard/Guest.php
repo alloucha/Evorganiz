@@ -32,7 +32,7 @@
                                     <div class="modal-body">
 
                                     <div class="form-group">
-                                        <select required class="form-control" name="newuest">
+                                        <select required class="form-control" name="newGuest">
                                         
                                         '. $list . 
                                         '</select>
