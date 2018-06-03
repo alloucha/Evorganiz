@@ -25,10 +25,10 @@ class Buffet extends CI_Controller {
 
             if (!empty($userInfo)){
 
-                if (!empty(htmlspecialchars($_POST['newGuest']))){
+                if (!empty(htmlspecialchars($_POST['newMeal']))){
 
                         $data = array(
-                            'idMeal'=> htmlspecialchars($_POST['newGuest']),
+                            'idMeal'=> htmlspecialchars($_POST['newMeal']),
                             'idEvent'=> $_GET['idEvent'],
                             'pricePerPerson'=> 0
                         );
@@ -63,7 +63,7 @@ class Buffet extends CI_Controller {
                     'idEvent'=> $_GET['idEvent']
                 );
 
-                if (isset($data['idGuest'])){
+                if (isset($data['idMeal'])){
 
                     $this->Buffet_model->delete($data);
                 }                 
