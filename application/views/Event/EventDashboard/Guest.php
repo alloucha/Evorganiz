@@ -100,7 +100,7 @@
                                     </div> Accepte invitation
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-warning">Ok</button>
+                            <div><button type="submit" class="btn btn-warning btn-sm">Ok</button></div>
                         </div>
                         </form>'  . '</td>';
 
