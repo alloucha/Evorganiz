@@ -176,7 +176,7 @@
                             $line = $line . '<td class="row">';
 
 
-                            $line = $line . '<span class="pull-right">
+                            $line = $line . '<td>' . '<span class="pull-right">
 
                                                 <a class="btn" data-toggle="modal" data-target="#editEventModal_' . $idEvent .'" role="button"><i class="fa fa-edit"></i></a>
                                                 <a class="btn" data-toggle="modal" data-target="#deleteEventModal_' . $idEvent .'" role="button"><i class="fa fa-trash-o"></i></a>
