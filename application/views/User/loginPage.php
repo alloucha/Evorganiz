@@ -17,7 +17,7 @@
 
         <div class="form-box" id="login-box">
             <div class="header">Identification à Evorganiz </div>
-            <form action="<?php echo site_url('Login/login')?>" method="post">
+            <form action="<?php echo base_url('Login/login')?>" method="post">
                 <div class="body bg-gray">
                     <div class="form-group">
                         <input type="text" name="username" test class="form-control" placeholder="identifiant" <?php if (isset($usernameAlredeadyUsed)){ echo 'value="' . $usernameAlreadyUsed . '"' ; } ?>>
@@ -34,11 +34,9 @@
             </form>
         </div>
 
-
         <!-- jQuery 2.0.2 -->
         <script src="<?php echo base_url()?>/AdminLTE/js/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="<?php echo base_url() ?>/AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>        
-
     
 </body></html>
