@@ -87,14 +87,25 @@
                         $line = $line . '<td>' . $firstname . '</td>';
                         $line = $line . '<td>' . $lastname . '</td>';
 
-                        if ($acceptInvitation=='Oui') {
+                        $accept ="";
+                        if ($acceptInvitation=='Oui'){ $accept = 'checked'; }
 
-                            $line = $line . '<td>' . '<small class="label label-success"><i class="fa fa-check"></i></small>' . '</td>';
+                        $line = $line . '<td>' . '<form method="POST" action="' . base_url("Guest/editGuest?idGuest=" . $idGuest . '&idEvent=' . $idEvent) . '">
+                        <div form-inline>
+                            <div class="checkbox">
+                                <label class="">
+                                    <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;">
+                                    <input type="checkbox" name="acceptToEdit"  style="position: absolute; opacity: 0;" value="Oui" ' . $accept . '>
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                    </div> Accepte invitation
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Ok</button>
+                        </div>
+                        </form>'  . '</td>';
 
-                        } else {
-                            $line = $line . '<td>';
-                        }
-                     
+                       
+                        
                         $line = $line . '<span class="pull-right">
                                                 <a class="btn" data-toggle="modal" data-target="#deleteGuestModal_' . $idGuest .'" role="button"><i class="fa fa-trash-o"></i></a>
                                             </span> </td>';

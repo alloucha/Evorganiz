@@ -15,6 +15,34 @@ class Guest extends CI_Controller {
 
     }
 
+
+     public function editGuest() {
+
+        if (!empty(get_cookie('idUserCookie'))){
+
+            $idUser = get_cookie('idUserCookie');
+            $idUser = $this->encryption->decrypt($idUser);
+            $userInfo = $this->User_model->getUserByIdUser($idUser);
+
+            if (!empty($userInfo)){
+
+                $data = array(
+                    'idGuest'=> htmlspecialchars($_GET['idGuest']),
+                    'idEvent'=> htmlspecialchars($GET['idEvent']),
+                    'acceptInvitation'=> htmlspecialchars($_POST['acceptToEdit'])
+                );
+
+                $this->Meal_model->update($data);
+                redirect(base_url('/Meal'));
+            } else {
+                redirect(base_url('/Register'));
+            }
+        } else {
+            redirect(base_url('/Login'));
+        }
+    }
+
+
     public function addGuest() {  
 
         if (!empty(get_cookie('idUserCookie'))){
