@@ -9,6 +9,9 @@ class Purchase extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view("Purchase/Purchase_view");
+
+		$data['page'] = $this->load->view("Purchase/Purchase_view");
+		$data['title']= 'ACHAT';
+		$this->load->view("Theme/theme", $data);
 	}
 }
