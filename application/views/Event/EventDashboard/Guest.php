@@ -65,7 +65,6 @@
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Accepte invitation</th>
-                        <th> </th>
                         
                     </tr>
                   
@@ -97,8 +96,9 @@
                                     <div class="icheckbox_minimal" aria-checked="false" aria-disabled="false" style="position: relative;">
                                     <input type="checkbox" name="acceptToEdit"  style="position: absolute; opacity: 0;" value="Oui" ' . $accept . '>
                                     <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                    </div> <button type="submit" class="btn btn-warning btn-sm">Ok</button>
+                                    </div>
                                 </label>
+                                <button type="submit" class="btn btn-warning btn-sm">Ok</button>
                             </div>
                         </form>'  . '</td>';
 
@@ -106,7 +106,7 @@
                         
                         $line = $line . '<span class="pull-right">
                                                 <a class="btn" data-toggle="modal" data-target="#deleteGuestModal_' . $idGuest .'" role="button"><i class="fa fa-trash-o"></i></a>
-                                            </span> </td>';
+                                            </span>';
 
 
                         $line = $line . '</tr>';
