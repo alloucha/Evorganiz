@@ -33,7 +33,7 @@ class Guest extends CI_Controller {
                 );
 
                 $this->Guest_model->update($data);
-                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent'])));
+                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));
             } else {
                 redirect(base_url('/Register'));
             }
