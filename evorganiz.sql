@@ -15,9 +15,9 @@ CREATE TABLE `Contact` (
   `idContact` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `firstnameContact` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `lastnameContact` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
-  `streetContact` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
-  `townContact` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `lastnameContact` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `streetContact` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `townContact` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `zipCodeContact` int(11) DEFAULT NULL,
   `telContact` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -186,6 +186,3 @@ ALTER TABLE `Guest`
   ADD CONSTRAINT `c_guest1` FOREIGN KEY (`idEvent`) REFERENCES `Event` (`idEvent`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `c_guest2` FOREIGN KEY (`idContact`) REFERENCES `Contact` (`idContact`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
