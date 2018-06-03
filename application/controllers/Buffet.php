@@ -35,9 +35,8 @@ class Buffet extends CI_Controller {
 
                          $this->Buffet_model->insert($data);
                 }
-                
-                var_dump($idEvent);
-                //redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));
+            
+                redirect(base_url('/EventDashboard?idEvent=' . $data['idEvent']));
 
             } else {
                 redirect(base_url('/Register'));
