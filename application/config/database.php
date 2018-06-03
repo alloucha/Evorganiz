@@ -79,10 +79,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'onnjomlc4vqc55fw.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
-	'username' => 'zvha17scfip1ez0m',
-	'password' => 'g66jtycmvbb2c9f6',
-	'database' => 'hnsildcixmrr1moo',
+	'hostname' => 'vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+	'username' => 'prlmdaeztgmcl2wb',
+	'password' => 'dtvxea3prtwrkb32',
+	'database' => 'jyf42fffbj59ecfy',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
