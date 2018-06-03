@@ -135,8 +135,8 @@
                             $line = '<tr>';
                             $line = $line . '<td>' . $dateEvent       . '</td>';
 
-                            var_dump($idOccasion);
-                            
+                            var_dump($idOccasionEvent);
+
                             foreach ($ListOccasions as $occasion){
 
                                 $idOccasion = $occasion->idOccasion;
