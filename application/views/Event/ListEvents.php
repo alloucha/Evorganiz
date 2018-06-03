@@ -2,19 +2,10 @@
 <html>
 
 <head>
-        <meta charset="UTF-8">
-        <title>AdminLTE | Data Tables</title>
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- bootstrap 3.0.2 -->
-        <link href="<?php echo site_url()?>AdminLTE/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <!-- font Awesome -->
-        <link href="<?php echo site_url()?>AdminLTE/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <!-- Ionicons -->
-        <link href="<?php echo site_url()?>AdminLTE/css/ionicons.min.css" rel="stylesheet" type="text/css">
+
         <!-- DATA TABLES -->
-        <link href="<?php echo site_url()?>AdminLTE/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
-        <!-- Theme style -->
-        <link href="<?php echo site_url()?>AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url()?>AdminLTE/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+        
 
     <style></style></head>
 <body>
@@ -32,7 +23,7 @@
     <!-- /.box-header -->
     <div class="box-body" style="display: none;">
 
-        <form role="form" method="POST" action = <?php echo site_url('Events/addEvent')?> >
+        <form role="form" method="POST" action = <?php echo base_url('Events/addEvent')?> >
 
             <div class="form-group">
                 <div class="input-group">
@@ -169,7 +160,7 @@
 
                                     if ($idOccasionEvent==$idOccasion) {
                                         $nameOccasion = $occasion->nameOccasion;
-                                        $line = $line . '<td><a  href="' . site_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $nameOccasion . '</td>';
+                                        $line = $line . '<td><a  href="' . base_url('EventDashboard?idEvent='. $idEvent ) . '" >' . $nameOccasion . '</td>';
                                     }
                                 }
                             }
@@ -228,7 +219,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Modifier événement</h5>
                                         </div>
                             
-                                        <form method="POST" action="' . site_url("Events/editEvent?idEventToEdit=" . $idEvent) . '">
+                                        <form method="POST" action="' . base_url("Events/editEvent?idEventToEdit=" . $idEvent) . '">
                                             
                                             <div class="modal-body">
                                               
@@ -295,7 +286,7 @@
                                        
                                           </div>
                                           
-                                          <form method="POST" action="' . site_url("Events/deleteEvent") . '">
+                                          <form method="POST" action="' . base_url("Events/deleteEvent") . '">
                                               <div class="modal-body">
                                                     <p>Etes-vous sûr de vouloir supprimer cet événement ?</p>
                                                     <input type="hidden" name="idEventToDelete" id="idEventToDelete" value="'. $idEvent .'">
@@ -335,8 +326,5 @@
     </div><!-- /.box -->
 </div>
 </tr></thead></table></div></div></div></div></div>
-
-
-
 
 </body></html>
