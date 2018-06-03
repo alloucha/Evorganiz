@@ -91,14 +91,9 @@ class Meal extends CI_Controller {
                     'descriptionMeal'=> htmlspecialchars($_POST['descriptionMeal']),
                     'idUser'=> $idUser
                 );
-
+                
                 $this->Meal_model->insert($data);
-
-                if ($data['typeMeal']=='All'){
-                    redirect(base_url('/Meal'));
-                } else {
-                    redirect(base_url('/Meal?typeMeal=' . $data['typeMeal']));
-                }
+                redirect(base_url('/Meal?typeMeal=' . $data['typeMeal']));
 
 	        } else {
                 redirect(base_url('/Register'));
