@@ -104,9 +104,9 @@
 
                        
                         
-                        $line = $line . '<span class="pull-right">
+                        $line = $line . '<td>' . '<span class="pull-right">
                                                 <a class="btn" data-toggle="modal" data-target="#deleteGuestModal_' . $idGuest .'" role="button"><i class="fa fa-trash-o"></i></a>
-                                            </span>';
+                                            </span>'. '</td>';
 
 
                         $line = $line . '</tr>';
