@@ -140,6 +140,7 @@
                             foreach ($ListOccasions as $occasion){
 
                                 $idOccasion = $occasion->idOccasion;
+                                var_dump($occasion->nameOccasion);
 
                                 if ($idOccasionEvent==$idOccasion) {
                                     $nameOccasion = $occasion->nameOccasion;
