@@ -287,19 +287,6 @@
                     ?>
                 </tbody>
             </table>
-
-            <div class="row">
-
-                <div class="col-xs-6">
-                    <ul class="pagination pagination-sm margin pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
-            </div>
         </div><!-- /.box-body -->
     </div><!-- /.box -->
 </div>

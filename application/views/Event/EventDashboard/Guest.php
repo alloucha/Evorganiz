@@ -65,6 +65,7 @@
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Accepte invitation</th>
+                        <th> </th>
                         
                     </tr>
                   
