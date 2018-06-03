@@ -224,12 +224,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                              <ul class="treeview-menu">
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Décoration</a></li>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Art de la table</a></li>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Voiture</a></li>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Salle</a></li>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Souvenir</a></li>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i> Autre</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Décoration</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Art de la table</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Voiture</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Salle</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Souvenir</a></li>
+                                <li><a href="Purchase"><i class="fa fa-angle-double-right"></i> Autre</a></li>
                             </ul>
                     
                         </li>
