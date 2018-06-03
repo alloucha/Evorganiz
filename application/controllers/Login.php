@@ -10,7 +10,8 @@ class Login extends CI_Controller {
 
 
 	public function index() {
-		return $this->load->view("User/loginPage");
+		$data['usernameAlreadyUsed']='';
+		return $this->load->view("User/loginPage", $data);
 	}
 
 

@@ -42,9 +42,8 @@ class Register extends CI_Controller {
             
             if ($this->form_validation->run('username') == FALSE)
             {
-                //$data['usernameAlreadyUsed'] = $data['username'];
-                //$this->load->view('User/loginPage', $data);
-                redirect(base_url('Login?usernameAlreadyUsed=' . $data['username']));                
+                $data['usernameAlreadyUsed'] = $data['username'];
+                $this->load->view('User/loginPage', $data);
             } elseif ($this->form_validation->run() == FALSE) {
 
                 redirect(base_url('Register'));
